@@ -1,0 +1,131 @@
+::-webkit-scrollbar{
+    display: none;
+}
+.webplayer__side__bar{
+    /* border: 1px solid #FFF; */
+    height: 100%;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.webplayer__side__bar__top , .webplayer__side__bar__bottom{
+    /* border: 1px solid #FFF; */
+    width: 100%;
+    background-color: #121212;
+    border-radius: 10px;
+}
+
+
+
+.webplayer__side__bar__top div{
+    margin: 10px 0;
+    padding-left: 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px;
+    font-size: 1em;
+    font-weight: 600;
+    color: #767676;
+    cursor: pointer;
+    transition: .3s;
+}
+
+
+.webplayer__side__bar__top a{
+    text-decoration: none;
+}
+.webplayer__side__bar__top div:hover{
+    color: #FFF;
+}
+
+.webplayer__side__bar__top__icons{
+    font-size: 20px;
+}
+
+.webplayer__side__bar__bottom{
+    margin-top: 15px;
+    /* border: 1px solid #FFF; */
+    height: auto;
+    padding-left: 20px;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+
+.webplayer__side__bar__bottom__heading{
+    color: #767676;
+    margin-bottom: 5px;
+}
+
+.webplayer__side__bar__bottom hr{
+    width: 98%;
+}
+
+
+
+
+.webplayer__side__bar__bottom__playlist__item_a{
+    text-decoration: none;
+}
+
+.webplayer__side__bar__bottom__playlist__item{
+    display: flex;
+    padding: 10px;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+    height: 70px;
+    /* border: 1px solid #FFF; */
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+
+
+.playlist__item__image{
+    height: 100%;
+}
+
+.playlist__item__image img{
+    height: 100%;
+}
+
+.playlist__item__description{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.playlist__item__name{
+    font-size: .9em;
+}
+
+.playlist__item__name:hover{
+    text-decoration: underline;
+}
+
+.playlist__item__owner{
+    margin-top: 5px;
+    font-size: .8em;
+    color: #767676;
+    font-weight: 600;
+}
+.playlist__item__loading__image{
+    width: 100%;
+    animation: loadingImage infinite 1.2s linear;
+}
+
+@keyframes loadingImage{
+    0% , 100%{
+        opacity: 1;
+    }
+    50%{
+        opacity: .5;
+    }
+}

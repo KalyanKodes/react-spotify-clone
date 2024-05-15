@@ -1,0 +1,109 @@
+.welcome__note__outer{
+    width: 100%;
+    height: 100%;
+    color: #FFF;
+    /* background-color: rgb(57, 58, 55); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+
+.welcome__note{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.welcome__note__image{
+    animation: welcomeLoad 1 .8s linear;
+}
+
+
+.welcome__note__heading{
+    /* transform: translateY(-70px); */
+    font-size: 60px;
+    position: relative;
+    animation: welcomeLoad 1 .8s  linear;
+}
+
+.clientId__form{
+    margin-top: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.clientId__form input{
+    width: 50%;
+    border: none;
+    margin-right: 30px;
+    background-color: unset;
+    border-bottom: 1px solid #DEB887;
+    padding: 10px;
+    outline: none;
+    font-size: 1.1em;
+}
+
+
+
+.welcome__note__heading::after{
+    content: "by. KALYAN KUMAR";
+    position: absolute;
+    right: 0;
+    bottom: -20px;
+    font-size: 17px;
+    color: burlywood;
+}
+
+.welcome__note__button{
+    padding: 10px 15px;
+    border: none;
+    background-color: burlywood;
+    border-radius: 30px;
+    font-size: 1.2em;
+    text-decoration: none;
+    color: #000;
+    cursor: pointer;
+    transition: .3s;
+    /* transform: translateY(50px); */
+    animation: welcomeLoad 1 .8s  linear;
+}
+
+.welcome__note__button a{
+    text-decoration: none;
+}
+
+.welcome__note__button:hover{
+    color: #FFF;
+}
+@keyframes welcomeLoad{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+
+@media (max-width: 650px){
+    .welcome__note__image{
+        width: 400px;
+    }
+    .welcome__note__heading{
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 410px){
+    .welcome__note__heading{
+        font-size: 30px;
+    }
+    .welcome__note__image{
+        width: 300px;
+    }
+}

@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins" , Arial, Helvetica, sans-serif;
+}
+
+#root{
+    background-color: #000;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+}
+#trigger{
+    display: none;
+    width: 100%;
+    height: 100vh;
+    background-color: #000;
+    color: red;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 1000px){
+    #root{
+        display: none;
+    }
+    #trigger{
+        display: flex;
+    }
+}
