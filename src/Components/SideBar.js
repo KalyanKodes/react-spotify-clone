@@ -56,15 +56,15 @@ function SideBar() {
         () =>{
             const getPlaylists = async () =>{
                     Spotify.setAccessToken(accessToken)
-                    console.log("Fetching Side Bar Playlists")
+                    // console.log("Fetching Side Bar Playlists")
                     let returnedList = await Spotify.getFeaturedPlaylists().then((data) => (data.playlists.items));
                     for(let i = 0; i< returnedList.length; i++){
                         _playlists.push(<PlaylistCard status={false}  imageUrl={returnedList[i].images[0].url} key={returnedList[i].id} ownerName={returnedList[i].owner.display_name} playlistName={returnedList[i].name} id = {returnedList[i].id}/>)
                     }
-                    console.log("Fetching Side Bar Playlists Completed")
-                    console.log("Testing Playlist ID");
+                    // console.log("Fetching Side Bar Playlists Completed")
+                    // console.log("Testing Playlist ID");
 
-                    Spotify.getPlaylist("73pL7GHExZgUOzqAm1TaRE").then((data)=>console.log(data));
+                    // Spotify.getPlaylist("73pL7GHExZgUOzqAm1TaRE").then((data)=>console.log(data));
 
                 setLoading(false);
                 setPlaylists(_playlists)

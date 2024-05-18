@@ -8,16 +8,31 @@ let accessToken = ""
 const getAccessToken = () => {
   let url = window.location.hash;
   let splitedUrl = url.split("=");
-
+  //console.log(new Date().getTime())
   if(localStorage.getItem("login")){
       accessToken = localStorage.getItem("accessToken");
+      let timeLeft = -(localStorage.getItem("logedinAt") - new Date().getTime());
+      if(timeLeft >= 2400000){
+        console.log("Token expired");
+        localStorage.removeItem('login');
+        localStorage.removeItem('accessToken');
+        localStorage.removeItem('logedinAt');
+        alert("Access Token Expired. Please Login Again");
+        return false;
+      }
+      else{
+        console.log("Time Left For the new Login session: " , timeLeft);
+        console.log(localStorage.getItem("logedinAt"));
+
+      }
       return true;
   }
   else if (splitedUrl[1]) {
       accessToken = splitedUrl[1].split("&")[0];
       window.location.hash = "";
       localStorage.setItem("login" , true);
-      localStorage.setItem("accessToken" , accessToken)
+      localStorage.setItem("accessToken" , accessToken);
+      localStorage.setItem("logedinAt" , new Date().getTime())
       return true;
   } else {
       return false;

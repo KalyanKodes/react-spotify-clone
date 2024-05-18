@@ -1,0 +1,10 @@
+.webplayer__main__body{
+    /* border: 1px solid #FFF; */
+    height: 100%;
+    width: 80%;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(#222222 , #131819, #121212);
+}

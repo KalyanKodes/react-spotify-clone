@@ -1,0 +1,47 @@
+/* .home__super{
+    border: 1px solid #FFF;
+} */
+
+.home__playlist__card__outer{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    /* border: 1px solid #FFF; */
+}
+
+.home__playlist__card__outer div{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.playlist__card{
+    min-width: 320px;
+    padding-right: 10px;
+    /* border: 1px solid #FFF; */
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background-color: #252f31;
+}
+
+.playlist__card img{
+    width: 70px;
+}
+
+.playlist__card__image__load{
+    width: 70px;
+    height: 70px;
+    background-color: #6a6666;
+    border-radius: 5px;
+    animation: loadingImage infinite 1s linear;
+}
+
+.playlist__card__title__load{
+    padding: 10px;
+    width: 150px;
+    border-radius: 5px;
+    background-color: #6a6666;
+    animation: loadingImage infinite 1s linear;
+}
