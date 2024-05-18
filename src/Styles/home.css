@@ -1,18 +1,20 @@
-/* .home__super{
-    border: 1px solid #FFF;
-} */
 
-.home__playlist__card__outer{
+.home__playlist__card__outer , .home__top__artist__card__outer{
     display: flex;
     flex-direction: column;
     padding: 20px;
     /* border: 1px solid #FFF; */
 }
 
-.home__playlist__card__outer div{
+.home__playlist__card__outer .wrapper , .home__top__artist__card__outer .wrapper{
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
+    /* border: 1px solid #FFF; */
+}
+
+.home__top__artist__card__outer .wrapper{
+    gap: 40px;
 }
 
 .playlist__card{
@@ -43,5 +45,26 @@
     width: 150px;
     border-radius: 5px;
     background-color: #6a6666;
+    animation: loadingImage infinite 1s linear;
+}
+
+.home__artist__card{
+    display: flex;
+    flex-direction: column;
+}
+
+.home__artist__card img{
+    width: 200px;
+    height: 200px;
+    object-position: top;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.home__artist__card__image__load{
+    width: 200px;
+    height: 200px;
+    background-color: #252F31;
+    border-radius: 50%;
     animation: loadingImage infinite 1s linear;
 }
