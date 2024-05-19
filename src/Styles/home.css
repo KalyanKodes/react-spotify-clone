@@ -48,12 +48,12 @@
     animation: loadingImage infinite 1s linear;
 }
 
-.home__artist__card{
+.home__artist__card , .home__new__release__card{
     display: flex;
     flex-direction: column;
 }
 
-.home__artist__card img{
+.home__artist__card img , .home__new__release__card img{
     width: 200px;
     height: 200px;
     object-position: top;
@@ -61,7 +61,12 @@
     object-fit: cover;
 }
 
-.home__artist__card__image__load{
+.home__new__release__card img{
+    border-radius: 10px;
+}
+
+
+.home__artist__card__image__load .home__new__release__card__image__load{
     width: 200px;
     height: 200px;
     background-color: #252F31;

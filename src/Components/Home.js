@@ -8,6 +8,7 @@ export default function Home(){
     let {accessToken} = useContext(myContext);
     let [playlists , setPlaylists] = useState({loadingStatus: true , $playlists: ["" , "" , "" , "" , ""]});
     let [artists , setArtists] = useState({loadingStatus: true , $artists : ["" , "" , "" , "" , ""]});
+    let [albums , setAlbums] = useState({loadingStatus: true , $albums : ["" , "" , "" , "" , ""]});
 
 
     // Use Effect to get recent Tracks Playlists
@@ -22,12 +23,28 @@ export default function Home(){
     } , [accessToken])
 
     useEffect(()=>{
-        const test = async ()=>{
+        const getNewAlbums = async ()=>{
             // Spotify.setAccessToken(accessToken)
-            let response = await Spotify.getCategories()
-            console.log(response);
+            let response = await Spotify.getNewReleases();
+            let artistsArr = response.albums.items;
+            let artistDetials = [];
+            for(const artist of artistsArr){
+              artistDetials.push([artist.id , artist.images[0].url , artist.name , artist.artists[0].name])
+            }
+            // console.log("Test: ",artistsArr);
+            let initialArtistDetials = [];
+            if(artistDetials.length > 6){
+              for(let i = 0; i < 6; i++){
+                initialArtistDetials.push(artistDetials[i])
+              }
+            }
+            else{
+              initialArtistDetials = artistDetials;
+            }
+            console.log("Final Artist Detials: ",initialArtistDetials)
+            setAlbums({loadingStatus : false  , $albums : [...initialArtistDetials]});
         }
-        test()
+        getNewAlbums()
     } , [accessToken]);
   
     return(
@@ -58,9 +75,20 @@ export default function Home(){
               }
             </div>
         </div>
-
-
-        {/* Best Playlists */}
+        
+        
+        {/* New Albums */}
+        <div className="home__top__artist__card__outer">
+            <h3>New Releases</h3>
+            <br />
+            <div className="wrapper">
+              {
+                albums.loadingStatus ? 
+                    albums.$albums.map((item , i)=><NewAlbum loading={true} key={i}/>):
+                    albums.$albums.map((album)=><NewAlbum key={album[0]} albumImage={album[1]} albumTitle={album[2]} albumArtist={album[3]}/>)
+              }
+            </div>
+        </div>
         {/* Recomended Stations */}
         {/* Sweat Hours */}
       </div>
@@ -141,13 +169,22 @@ function HomeArtistCard({loading , image , name}){
         </div>
     )
 }
+function NewAlbum({loading , albumImage , albumTitle , albumArtist}){
+    return (
+        <div className="home__new__release__card">
+                    {loading ? <div className="home__new__release__card__image__load"></div> : <img src={albumImage} alt={albumTitle} />}
+                    {!loading && <small>{albumTitle}</small>}
+                    {!loading && <code>{albumArtist}</code>}
+        </div>
+    )
+}
 
 
   function HomePlaylistCard({loading , coverImage , title}){  
       return(
   
          <div className="playlist__card">
-            {loading ? <div className="playlist__card__image__load"> </div> : <img src={coverImage} alt="playlist-cover" onError={()=>this.src = spotifyLogo}/>}
+            {loading ? <div className="playlist__card__image__load"> </div> : <img src={coverImage} alt="playlist-cover" onError={(e)=> e.target.src = spotifyLogo}/>}
             {loading ? <p className="playlist__card__title__load"></p> : <p>{title}</p>}
         </div>
       )
