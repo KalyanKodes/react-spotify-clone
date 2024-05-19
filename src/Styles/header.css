@@ -8,6 +8,7 @@
     justify-content: space-between;
     align-items: center;
     padding-inline: 30px;
+    padding-top: 10px;
 }
 
 .home__header__left{

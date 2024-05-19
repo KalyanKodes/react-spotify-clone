@@ -1,12 +1,12 @@
 
-.home__playlist__card__outer , .home__top__artist__card__outer{
+.home__playlist__card__outer , .home__top__artist__card__outer , .home__new__releases__card__outer ,.home__top__albums__card__outer{
     display: flex;
     flex-direction: column;
     padding: 20px;
     /* border: 1px solid #FFF; */
 }
 
-.home__playlist__card__outer .wrapper , .home__top__artist__card__outer .wrapper{
+.home__playlist__card__outer .wrapper , .home__top__artist__card__outer .wrapper , .home__new__releases__card__outer .wrapper ,.home__top__albums__card__outer .wrapper{
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
@@ -26,6 +26,13 @@
     align-items: center;
     gap: 20px;
     background-color: #252f31;
+    cursor: pointer;
+}
+.playlist__card:hover{
+    text-decoration: underline;
+}
+a{
+    text-decoration: none;
 }
 
 .playlist__card img{
@@ -48,12 +55,20 @@
     animation: loadingImage infinite 1s linear;
 }
 
-.home__artist__card , .home__new__release__card{
+.home__artist__card , .home__new__releases__card , .home__top__albums__card{
     display: flex;
+    max-width: 200px;
     flex-direction: column;
+    text-overflow: ellipsis;
+    /* border: 1px solid #FFF; */
+    cursor: pointer;
 }
 
-.home__artist__card img , .home__new__release__card img{
+.home__artist__card{
+    background-color: rgba(18, 18, 18, 0.5);
+    border-radius: 10px;
+}
+.home__artist__card img , .home__new__releases__card img , .home__top__albums__card img{
     width: 200px;
     height: 200px;
     object-position: top;
@@ -61,12 +76,12 @@
     object-fit: cover;
 }
 
-.home__new__release__card img{
+.home__new__releases__card img , .home__top__albums__card img{
     border-radius: 10px;
 }
 
 
-.home__artist__card__image__load .home__new__release__card__image__load{
+.home__artist__card__image__load, .home__new__releases__card__image__load , .home__top__albums__card__image__load{
     width: 200px;
     height: 200px;
     background-color: #252F31;
