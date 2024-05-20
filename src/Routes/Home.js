@@ -17,12 +17,13 @@ export default function Home(){
     useEffect(()=>{getRecentlyPlayedTracksPlaylists(accessToken , setPlaylists)} , [accessToken])
     // Use Effect to get Artist details;
     useEffect(()=>{getTopArtists(setArtists)} , [accessToken])
-  // Use Effect to get New Albums
+    // Use Effect to get New Albums
     useEffect(()=>{getNewAlbums(setAlbums)} , [accessToken]);
     // Use Effect to get Top Albums of User
-      useEffect(()=>{getTopAlbums(setTopAlbums)} , [accessToken]);
+    useEffect(()=>{getTopAlbums(setTopAlbums)} , [accessToken]);
+    // Use Effect to change background color of Home Component on Initial Render
+    useEffect(()=>{changeBackgroundColor(["#222222" , "#131819", "#121212"])} , []); 
       
-    
 
     return(
       <>
@@ -38,7 +39,7 @@ export default function Home(){
               }
             </div>
         </div>
-
+              
         {/* Artists */}
               
         <div className="home__top__artist__card__outer">
@@ -85,6 +86,12 @@ export default function Home(){
   }
   
 
+
+  function changeBackgroundColor(colors){
+    let element = document.getElementById('super');
+    // setTimeout(()=>{element.style.background = `linear-gradient(${colors})`;} , 299);
+    element.style.background = `linear-gradient(${colors})`;
+  }
 
 async function getTopAlbums(stateChanger){
   let response = await Spotify.getMyTopTracks({limit: 50});
@@ -240,8 +247,12 @@ function TopAlbum({loading , albumImage , albumTitle , albumArtist , id}){
   function HomePlaylistCard({loading , coverImage , title , id}){  
       return(
         <Link to={`playlist/${id}`}>
-          <div className="playlist__card">
-            {loading ? <div className="playlist__card__image__load"> </div> : <img src={coverImage} alt="playlist-cover" onError={(e)=> e.target.src = spotifyLogo}/>}
+          <div 
+              className="playlist__card" >
+            {loading ? <div className="playlist__card__image__load"> </div> : 
+                    <img src={coverImage} alt="playlist-cover" onError={(e)=> e.target.src = spotifyLogo}/>
+
+            }
             {loading ? <p className="playlist__card__title__load"></p> : <p>{title}</p>}
         </div>
         </Link>

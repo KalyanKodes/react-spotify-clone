@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import SideBar from "./SideBar";
 import { BrowserRouter, Routes , Route } from "react-router-dom";
 // import Search from "../Routes/Search";
@@ -23,17 +23,18 @@ export const  Spotify = new SpotifyWebApi();
 
 export default function Webplayer() {
 
+  let hero = useRef()
   return (
     <>
         <BrowserRouter>
             {/* SideBar */}
             {<SideBar />}
             {/* Body */}
-            <div className="webplayer__main__body">
+            <div className="webplayer__main__body" id="super" ref={hero}>
                 <Header/>
                 <div className="super">
                 <Routes>
-                  <Route path="" element={<Home />}/>
+                  <Route path="" element={<Home refOfElement = {hero}/>}/>
                   <Route path="playlist/:playlistId" element={<Playlist />}/>
                   <Route path="album/:albumId" element={<Album />}/>
                   <Route path="artist/:artistId" element={<Artist />}/>

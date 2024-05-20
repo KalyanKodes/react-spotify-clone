@@ -4,6 +4,7 @@
     flex-direction: column;
     padding: 20px;
     /* border: 1px solid #FFF; */
+    /* background-color: yellow; */
 }
 
 .home__playlist__card__outer .wrapper , .home__top__artist__card__outer .wrapper , .home__new__releases__card__outer .wrapper ,.home__top__albums__card__outer .wrapper{
@@ -12,6 +13,7 @@
     flex-wrap: wrap;
     /* border: 1px solid #FFF; */
 }
+
 
 .home__top__artist__card__outer .wrapper{
     gap: 40px;
@@ -64,10 +66,7 @@ a{
     cursor: pointer;
 }
 
-.home__artist__card{
-    background-color: rgba(18, 18, 18, 0.5);
-    border-radius: 10px;
-}
+
 .home__artist__card img , .home__new__releases__card img , .home__top__albums__card img{
     width: 200px;
     height: 200px;
