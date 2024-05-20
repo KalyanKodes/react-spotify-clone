@@ -88,7 +88,7 @@ export default function Home(){
 
 async function getTopAlbums(stateChanger){
   let response = await Spotify.getMyTopTracks({limit: 50});
-  console.log("Top Tracks: ",response.items)
+  // console.log("Top Tracks: ",response.items)
   let trackDetaisArr = response.items;
   let topAlbumsId = []
   let topAlbums = [];
