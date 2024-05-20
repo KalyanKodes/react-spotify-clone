@@ -1,0 +1,43 @@
+.controls__super{
+    padding: 20px 40px;
+    /* background-color: yellow; */
+    display: flex;
+    height: 50px;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+    position: relative;
+}
+
+.controls__super__play__button{
+    font-size: 40px;
+    cursor: pointer;
+    transition: .1s;
+}
+
+
+
+.controls__super__list{
+    font-size: 20px;
+    cursor: pointer;
+    
+}
+
+.controls__list__song__list{
+    position: absolute;
+    right: 50px;
+    top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #3E3E3E;
+    padding: 10px;
+}
+
+.controls__list__song__list div{
+    display: flex;
+    gap: 10px;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+}

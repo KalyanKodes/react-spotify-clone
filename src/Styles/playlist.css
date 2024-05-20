@@ -1,72 +1,74 @@
-.playlist__banner__super , .playlist__banner__super__load{
+.banner__super , .banner__super__load{
     width: 100%;
     /* height: 300px; */
     /* background-color: rgb(52, 52, 47); */
     display: flex;
     align-items: flex-end;
     padding: 10px 40px;  
-    gap: 30px;
+    /* gap: 30px; */
     /* box-shadow: 0 25px 25px rgba(0, 0, 0, 0.743); */
 }
 
-.playlist__banner__left{
+.banner__left{
     width: 300px;
 }
 
-.playlist__banner__left img{
-    width: 100%;
-}
 
-.playlist__banner__right , .playlist__banner__right__load{
+.banner__right , .banner__right__load{
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     padding-bottom: 10px;
 }
 
-.playlist__banner__right__heading{
-    font-size: 50px;    
+.banner__right__heading{
+    font-size: 70px;    
 }
-.playlist__banner__right__description{
+.banner__right__description{
     margin: 10px 0;
     color: #CCB0BC;
     font-size: .8em;
     font-weight: 500;
 }
 
-.playlist__banner__right__bottom{
+.banner__right__bottom{
     color: #CCB0BC;
 }
 
-.playlist__banner__right__bottom span{
+.banner__right__bottom span{
     font-weight: 600;
 }
 
-.playlist__banner__left__load{
+.banner__left__load{
     height: 250px;
     width: 250px;
     background-color: #2A3038;
     border-radius: 20px;
     animation: loadingImage infinite 1.2s linear;
 }
-.playlist__banner__right__one__load , .playlist__banner__right__description__load{
+.banner__right__one__load , .banner__right__description__load{
     padding: 10px;
     background-color: #2A3038;
     border-radius: 20px;
-    margin: 20px 0;
+    margin: 20px 20px;
     width: 200px;
     animation: loadingImage infinite 1.2s linear;
 }
 
-.playlist__banner__right__description__load{
-    margin: 10px 0;
+.banner__right__description__load{
+    margin: 10px 10px;
     width: 50vw;
 }
 
-.playlist__banner__right__heading__load{
+.banner__image__artist{
+    border-radius: 50%;
+    box-shadow: 0 0 20px #000;
+}
+
+.banner__right__heading__load{
     padding: 20px;
     width: 40vw;
-    margin: 30px 0;
+    margin: 30px 30px;
     background-color: #2A3038;
     border-radius: 10px;
     animation: loadingImage infinite 1.2s linear;

@@ -1,0 +1,57 @@
+.songs__super{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.songs__wrapper{
+    /* display: flex;
+    justify-content: space-between;
+    align-items: center; */
+    width: 98%;
+    padding-left: 100px;
+    margin-bottom: 10px;
+    display: grid;
+    /* background-color: rebeccapurple; */
+    grid-template-columns: repeat(6 , 200px);
+    grid-template-rows: auto;
+    column-gap: 100px;
+}
+
+
+
+ .songs__hr{
+    width: 100%;
+    text-align: center;
+    opacity: .4;
+    margin-bottom: 10px;
+}
+.first__tags{
+    display: flex;
+    gap: 20px;
+}
+
+.songs__wrapper__audio{
+    padding: 5px 0 5px 100px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.songs__wrapper__audio:hover{
+    background-color: #636561;
+}
+
+
+
+
+.artist__name , .song__name , .album__name , .song__duration , .song__addedon{
+    width: 200px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #acb0aa;    
+}
+    
+    .song__name{
+        color: #FFF;
+    }
