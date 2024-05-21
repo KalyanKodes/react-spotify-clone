@@ -88,9 +88,13 @@ export default function Home(){
 
 
   function changeBackgroundColor(colors){
-    let element = document.getElementById('super');
-    // setTimeout(()=>{element.style.background = `linear-gradient(${colors})`;} , 299);
-    element.style.background = `linear-gradient(${colors})`;
+    try{
+        let element = document.getElementById('super');
+        element.style.background = `linear-gradient(${colors})`;
+    }
+    catch(e){
+      console.log(e)
+    }
   }
 
 async function getTopAlbums(stateChanger){
