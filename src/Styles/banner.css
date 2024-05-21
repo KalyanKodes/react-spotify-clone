@@ -73,3 +73,12 @@
     border-radius: 10px;
     animation: loadingImage infinite 1.2s linear;
 }
+
+.banner__image{
+    transition: .4s;
+}
+
+.banner__image:hover{
+    scale: 1.03;
+    cursor: pointer;
+}

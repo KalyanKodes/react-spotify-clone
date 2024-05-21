@@ -36,9 +36,9 @@ export default function Webplayer() {
                 <Routes>
                   <Route path="" element={<Home refOfElement = {hero}/>}/>
                   <Route path="playlist/:playlistId" element={<Playlist />}/>
-                  <Route path="album/:albumId" element={<Album />}/>
-                  <Route path="artist/:artistId" element={<Artist />}/>
-                  <Route path="search" element={<Search />}/>
+                  {<Route path="album/:albumId" element={<Album />}/>}
+                  {<Route path="artist/:artistId" element={<Artist />}/>}
+                  {<Route path="search" element={<Search />}/>}
                 </Routes>
                 
                 </div>
