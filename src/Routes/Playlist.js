@@ -14,6 +14,7 @@ export default function Playlist(){
   let [listType , setlistType] = useState(false);
   useEffect(()=>{
     const getPlaylistsFromSpotify = async ()=>{
+      setPlaylistDetails(false)
       let response = await Spotify.getPlaylist(playlistId);
       console.clear();
       // console.log("Playlist Details: ",response)
