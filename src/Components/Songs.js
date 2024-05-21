@@ -101,7 +101,7 @@ export default function Songs({data , listType , requestType , albumRealese , al
                                                     <img src={coverImage} alt={albumName} width={50}/>
                                                     <div className="song__details__compact">
                                                       <p className="song__name">{songName}</p>
-                                                      <p className="artist__name">{artists.map((artist)=>artist.name + " ")}</p>
+                                                      <p className="artist__name">{artists.map((artist)=>artist.name + ",")}</p>
                                                     </div>
                                                 </div>
                                           }

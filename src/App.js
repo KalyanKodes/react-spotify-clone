@@ -18,7 +18,7 @@ const getAccessToken = () => {
         localStorage.removeItem('accessToken');
         localStorage.removeItem('logedinAt');
         alert("Access Token Expired. Please Login Again");
-        window.localStorage.hash = ""
+        window.location.hash = ""
         return false;
       }
       else{

@@ -1,10 +1,11 @@
 import React, { useState, useContext, useEffect } from "react";
 // import SpotifyWebApi from 'spotify-web-api-js';
 import "../Styles/header.css";
-import { faDownload, faAngleDown } from '@fortawesome/free-solid-svg-icons';
+import { faDownload, faAngleDown ,faUser} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { myContext } from "../App";
 import { Spotify } from "./Webplayer";
+import { Link } from "react-router-dom";
 
 export const Header = () => {
     let [showLogout, setShowLogout] = useState(false);
@@ -13,6 +14,9 @@ export const Header = () => {
 
     const logout = () => {
         window.location.hash = ""
+        localStorage.removeItem('login');
+        localStorage.removeItem('accessToken');
+        localStorage.removeItem('logedinAt');
         logoutFunction(false);
         // alert();
     }
@@ -43,8 +47,17 @@ export const Header = () => {
                     <FontAwesomeIcon icon={faDownload} className='home__header__download' />
                     Install App
                 </a>
-                <b className='home__header__right__down__symbol' onMouseOver={() => setShowLogout(true)} onMouseOut={() => setShowLogout(false)}>{userName}<FontAwesomeIcon icon={faAngleDown} /> {showLogout && <span className='home__header__logout' onClick={() => logout()}>LogOut</span>}</b>
+                <b 
+                    className='home__header__right__down__symbol'
+                    onMouseOver={() => setShowLogout(true)} 
+                    onMouseOut={() => setShowLogout(false)}>
+                    {userName}
+                    <FontAwesomeIcon icon={faUser} /> 
+                    <br />
+                    </b>
+                    <Link to={""} onClick={logout}>Logout</Link>
             </div>
+            
         </div>
     )
 }

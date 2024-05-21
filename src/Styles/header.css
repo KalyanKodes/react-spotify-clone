@@ -57,6 +57,7 @@
     transition: .4s;
     cursor: pointer;
     position: relative;
+    transition: .4s;
 }
 
 
@@ -71,4 +72,9 @@
 
 .home__header__logout:hover{
     color: turquoise;
+}
+
+
+.home__header__right__down__symbol a{
+    background-color: unset;
 }
