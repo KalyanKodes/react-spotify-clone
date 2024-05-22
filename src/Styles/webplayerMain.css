@@ -8,5 +8,6 @@
     flex-direction: column;
     background: linear-gradient(#222222 , #131819, #121212);
     transition: all .4s;
+    padding-bottom: 100px;
 }
 

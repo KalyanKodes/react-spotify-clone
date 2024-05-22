@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import "../Styles/controls.css"
 
 export function Controls({changeListType}){
-    let [playing , setPlaying] = useState(false);
+    // console.log("StateChagner: " , stateChanger)
     let [showControls , setShowControls] = useState(false);
     let [listType , setListType] = useState('Compact');
     useEffect(()=>{
@@ -13,9 +13,17 @@ export function Controls({changeListType}){
       }
       change();
     } , [listType]);
+
+
+
+
+
+
+
     return(
         <div className="controls__super">
-            <FontAwesomeIcon icon={playing ? faPause : faPlay} className='controls__super__play__button' onClick={()=>{setPlaying((status)=> !status)}}/>
+            
+            {/* <input type="text" className="controls__super__play__button" placeholder="Search a Song...." autoFocus/> */}
             <div style={{display: 'flex' , gap:'10px' , justifyContent: 'center' , alignItems:'center'}}>
                 <small>{listType}</small>
                 <FontAwesomeIcon icon={listType === 'List' ? faList : faHamburger} className='controls__super__list' onClick={()=>setShowControls(!showControls)}/>

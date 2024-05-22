@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 // import SpotifyWebApi from 'spotify-web-api-js';
 import "../Styles/header.css";
-import { faDownload, faAngleDown ,faUser} from '@fortawesome/free-solid-svg-icons';
+import { faDownload ,faUser} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { myContext } from "../App";
 import { Spotify } from "./Webplayer";
@@ -47,10 +47,7 @@ export const Header = () => {
                     <FontAwesomeIcon icon={faDownload} className='home__header__download' />
                     Install App
                 </a>
-                <b 
-                    className='home__header__right__down__symbol'
-                    onMouseOver={() => setShowLogout(true)} 
-                    onMouseOut={() => setShowLogout(false)}>
+                <b className='home__header__right__down__symbol'>
                     {userName}
                     <FontAwesomeIcon icon={faUser} /> 
                     <br />

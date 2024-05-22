@@ -1,14 +1,14 @@
 import React , {useState} from "react";
 import { ColorExtractor } from "react-color-extractor";
 import "../Styles/banner.css"
-
+import spotifyLogo from '../Assests/spotifyDiscoverWeeklyLogo.png'
 
 
 export default function Banner({ coverImage, type, name, description, ownerName, totalTracks, likes , id , bannerType , loading , followers , releasedDate}) {
     const [backgroundColor, setBackgroundColor] = useState('#FFFFFF');
     // I Tried to understand this function but no use. 
     // This function is part of extracting the dominent color of the image.
-    console.log("Banner Type: " , bannerType)
+    // console.log("Banner Type: " , bannerType)
     const handleColors = (colors) => {
       if (colors.length > 0) {
         setBackgroundColor(colors);
@@ -25,7 +25,7 @@ export default function Banner({ coverImage, type, name, description, ownerName,
       }
     }
     changeBackgroundColor();
-    console.log("Background Color: " ,backgroundColor)
+    // console.log("Background Color: " ,backgroundColor)
     return (
         loading ? 
         <div className="banner__super__load">
@@ -42,7 +42,7 @@ export default function Banner({ coverImage, type, name, description, ownerName,
       <div className="banner__super" >
         <div className="banner__left">
           <ColorExtractor getColors={handleColors}>
-            <img src={coverImage} alt="playlist" className= {bannerType === "Artist" ? "banner__image__artist banner__image" : "banner__image"} width={250} height={250} />
+            <img src={coverImage} alt="playlist" className= {bannerType === "Artist" ? "banner__image__artist banner__image" : "banner__image"} width={250} height={250} onError={()=>{this.src = spotifyLogo}}/>
           </ColorExtractor>
         </div>
         <div className="banner__right">

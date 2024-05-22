@@ -4,19 +4,21 @@ import { useParams } from "react-router-dom";
 import Banner from "../Components/Banner";
 import { Controls } from "../Components/Controls";
 import Songs from "../Components/Songs";
+import MusicPlayer from "./MusicPlayer";
 
 
 
-export default function Playlist(){
+export default function Playlist({musicPlayerTracksChanger}){
   const {playlistId} = useParams();
   let [playlistDetails , setPlaylistDetails] = useState()
   let [songsData , setSongsData] = useState();
   let [listType , setlistType] = useState(false);
+
   useEffect(()=>{
     const getPlaylistsFromSpotify = async ()=>{
       setPlaylistDetails(false)
       let response = await Spotify.getPlaylist(playlistId);
-      console.clear();
+      // console.clear();
       // console.log("Playlist Details: ",response)
       // console.log("Playlist Tracks: ",response.tracks.items[0]);
       // console.log("Song Added on: " , response.tracks.items[0].added_at.split("T")[0]);
@@ -43,8 +45,8 @@ export default function Playlist(){
                   bannerType = {"playlist"}
                   loading = {false}
             />
-            {<Controls changeListType={setlistType}/>}
-            {<Songs data = {songsData} listType={listType}/>}
+            {<Controls changeListType={setlistType} stateChanger = {musicPlayerTracksChanger} data = {songsData} type={'playlist'}/>}
+            {<Songs data = {songsData} listType={listType} />}
         </> :
 
       <Banner loading={true}/>

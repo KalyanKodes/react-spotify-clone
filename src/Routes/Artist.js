@@ -4,6 +4,7 @@ import { Spotify } from '../Components/Webplayer';
 import Banner from '../Components/Banner'
 import { Controls } from '../Components/Controls';
 import Songs from '../Components/Songs';
+import MusicPlayer from './MusicPlayer';
 
 
 function Artist() {
@@ -36,15 +37,32 @@ function Artist() {
     fetchArtistData();
   }, [artistId]);
 
-console.log("Songs: " , artistSongs)
+// console.log("Songs: " , artistSongs)
   return (
     <>
-      {artistDetails  ? <Banner loading={false} coverImage={artistDetails.coverImage} name={artistDetails.artistName} followers={artistDetails.followers} id={artistDetails.id} bannerType ={"Artist"}/> : <Banner loading={true}/>}
-      {<Controls changeListType={setlistType}/>}
-      {artistDetails && <Songs listType={listType} data={artistSongs} requestType = "artist"/>}
-      
-      
-
+      {
+          artistDetails  ? 
+              <Banner 
+                  loading={false} 
+                  coverImage={artistDetails.coverImage} 
+                  name={artistDetails.artistName} 
+                  followers={artistDetails.followers} 
+                  id={artistDetails.id} 
+                  bannerType ={"Artist"}/> 
+                  : 
+              <Banner loading={true}/>
+      }
+      {
+          <Controls changeListType={setlistType} />
+      }
+      {
+          artistDetails 
+              &&
+         <Songs 
+              listType={listType} 
+              data={artistSongs} 
+              requestType = "artist"/>
+      }
     </>
   )
 }

@@ -45,7 +45,7 @@
 
 
 .songs__wrapper__audio:hover{
-    background-color: #636561;
+    box-shadow: 0 5px 10px #000000ab;
 }
 
 

@@ -3,16 +3,21 @@
     /* background-color: yellow; */
     display: flex;
     height: 50px;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     margin: 20px 0;
     position: relative;
 }
 
 .controls__super__play__button{
-    font-size: 40px;
-    cursor: pointer;
+    /* font-size: 40px; */
     transition: .1s;
+    background-color: unset;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #FFF;
+    width: 300px;
+    padding: 5px 10px;
 }
 
 

@@ -1,0 +1,213 @@
+.music__player__super{
+    width: 100%;
+    height: 80px;
+    background-color: rgba(0,0,0,1);
+    background: #000;
+    position: fixed;
+    bottom: 0;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    transition: .3s;
+}
+
+
+
+
+.song__image__artists__music__player{
+    /* background-color: yellow; */
+    display: flex;
+    gap: 30px;
+}
+
+
+
+
+.song__details__compact__music__player{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.song__name__music__player , .artist__name__music__player{
+    font-size: 12px;
+    width: 200px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.artist__name__music__player{
+
+    color: #acb0aa; 
+}
+
+
+.music__player__controls{
+    /* background-color: rgb(48, 48, 35); */
+    color: #FFF;
+    display: flex;
+    width: 400px;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px ;
+}
+
+.control__buttons{
+    display: flex;
+    justify-content: center;
+    gap: 30px   ;
+    align-items: center;
+}
+
+.play__pause__button{
+    font-size: 40px;
+    cursor: pointer;
+}
+
+
+
+.track__range{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+
+.track__range p{
+    font-size: 12px;
+}
+.range{
+    height: 3px;
+    width: 400px;
+    background-color: #FFF;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+
+.music__controls__volume__controls__full__screen{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    /* background-color: blue; */
+    transition: .4s;
+    padding: 10px;
+    padding-right: 30px;
+}
+
+.music__controls__volume__controls__full__screen__triger{
+    align-items: end;
+}
+
+
+.volume__range{
+    height: 3px;
+    /* background-color: yellow; */
+    transition: .3s;
+    cursor: pointer;
+}
+
+.full__screen__icon , .speaker__icon{
+    cursor: pointer;
+}
+
+.playing__feedback{
+    display: flex;
+    gap: 10px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.playing__feedback span {
+    width: 2px;
+    height: var(--height);
+    background-color: yellow;
+    animation: playFeedback infinite .4s linear;
+  }
+
+  @keyframes playFeedback{
+        0% , 100%{
+            height: var(--height);
+        }
+        50%{
+            height: 0;
+        }
+  }
+  
+
+
+
+
+
+/* Full Screen Styles */
+
+.song__image__artists__music__player__full__screen{
+    /* background-color: yellow;    */
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding-left: 100px;
+}
+
+.song__image__artists__music__player__full__screen img{
+    width: 350px;
+    height: 350px;
+    animation: full__screen__image 1 .7s ease;
+}
+
+@keyframes full__screen__image{
+    from{
+        /* transform:  */
+        transform: translateX(-100%);
+        transform: translateY(100%);
+        opacity: 0;
+        width: 60px;
+        height: 60px;
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+        transform: translateX(0);
+        width: 350px;
+        height: 350px;
+    }
+}
+
+.song__details__compact__music__player__full__screen{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    /* background-color: yellow; */
+    height: 350px;
+}
+
+.song__name__music__player__full__screen , .artist__name__music__player__full__screen{
+    font-size: 30px;
+    font-weight: 900;
+    width: 400px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    animation: headings__full__screen 1 1.3s linear;
+}
+@keyframes headings__full__screen{
+    from{
+        transform: translateX(200px);
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0px);
+        
+    }
+}
+
+
+.controls__wrapper{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    /* background-color: yellow; */
+}
