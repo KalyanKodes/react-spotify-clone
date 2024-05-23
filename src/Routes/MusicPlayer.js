@@ -98,7 +98,7 @@ export default function MusicPlayer({track}){
 
 
 
-    console.log("Background Colors: " , backgroundColor)
+    // console.log("Background Colors: " , backgroundColor)
 
     return (
         <div className="music__player__super" id="music__player__super" ref={musicPlayerSuperRef} style={{height: isOnFullScreen ? "100vh" : '80px'}} rel={superRef}>
@@ -143,7 +143,7 @@ export default function MusicPlayer({track}){
                                                         </div> : ""
                                             }
                                             
-                                    </> : canPlayStatus === 'no' ? !isOnFullScreen && <p>Spotify Cannot play this song right now</p>  : !isOnFullScreen && <h1>Loading</h1>
+                                    </> : canPlayStatus === 'no' ? !isOnFullScreen && <p>Spotify Cannot play this song right now</p>  : !isOnFullScreen && <h1>Loading...</h1>
                                      : !isOnFullScreen && <h1>Song Not available</h1>}
                             </div>
                             
@@ -152,7 +152,7 @@ export default function MusicPlayer({track}){
                     <audio src={currentTrack.preview_url} ref={audioRef} onEnded={()=> pauseSong()} onCanPlayThrough={()=>{setCanPlayStatus('yes')}} onError={()=>{setCanPlayStatus("no")}}></audio>
                 </> 
                 :
-                <h1>Loading</h1>
+                <h1>Loading...</h1>
                      
             }
             <div className={isOnFullScreen ? "music__controls__volume__controls__full__screen__triger music__controls__volume__controls__full__screen" : "music__controls__volume__controls__full__screen"}>

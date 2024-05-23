@@ -5,20 +5,19 @@
     width: 100%;
     height: 70px;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     padding-inline: 30px;
     padding-top: 10px;
+    /* border: 1px solid #FFF; */
 }
 
-.home__header__left{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-}
 
-.home__header__left p{
+
+
+
+
+/* .home__header__left p{
     font-size: 1.7em;
     width: 45px;
     height: 45px;
@@ -28,11 +27,11 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
-}
+} */
 
-.home__header__left p:hover{
+/* .home__header__left p:hover{
     color: aliceblue;
-}
+} */
 
 .home__header__right{
     display: flex;

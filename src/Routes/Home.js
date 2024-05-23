@@ -18,7 +18,7 @@ export default function Home(){
     // Use Effect to get Artist details;
     useEffect(()=>{getTopArtists(setArtists)} , [accessToken])
     // Use Effect to get New Albums
-    useEffect(()=>{getNewAlbums(setAlbums)} , [accessToken]);
+    useEffect(()=>{AlbumCards(setAlbums)} , [accessToken]);
     // Use Effect to get Top Albums of User
     useEffect(()=>{getTopAlbums(setTopAlbums)} , [accessToken]);
     // Use Effect to change background color of Home Component on Initial Render
@@ -34,8 +34,8 @@ export default function Home(){
             <div className="wrapper">
               {
                 playlists.loadingStatus ? 
-                    playlists.$playlists.map((item , i)=><HomePlaylistCard loading={true} key={i}/>):
-                    playlists.$playlists.map((playlist)=><HomePlaylistCard key={playlist[2]} loading={false} coverImage={playlist[0]} title={playlist[1]} id={playlist[2]}/>)
+                    playlists.$playlists.map((item , i)=><PlaylistCard loading={true} key={i}/>):
+                    playlists.$playlists.map((playlist)=><PlaylistCard key={playlist[2]} loading={false} coverImage={playlist[0]} title={playlist[1]} id={playlist[2]}/>)
               }
             </div>
         </div>
@@ -48,8 +48,8 @@ export default function Home(){
             <div className="wrapper">
               {
                 artists.loadingStatus ? 
-                    artists.$artists.map((item , i)=><HomeArtistCard loading={true} key={i}/>):
-                    artists.$artists.map((artist)=><HomeArtistCard key={artist[0]} loading={false} image={artist[1]} name={artist[2]} id={artist[0]}/>)
+                    artists.$artists.map((item , i)=><ArtistCard loading={true} key={i}/>):
+                    artists.$artists.map((artist)=><ArtistCard key={artist[0]} loading={false} image={artist[1]} name={artist[2]} id={artist[0]}/>)
               }
             </div>
         </div>
@@ -62,8 +62,8 @@ export default function Home(){
             <div className="wrapper">
               {
                 albums.loadingStatus ? 
-                    albums.$albums.map((item , i)=><NewAlbum loading={true} key={i}/>):
-                    albums.$albums.map((album)=><NewAlbum key={album[0]} albumImage={album[1]} albumTitle={album[2]} albumArtist={album[3]} id={album[0]}/>)
+                    albums.$albums.map((item , i)=><AlbumCard loading={true} key={i}/>):
+                    albums.$albums.map((album)=><AlbumCard key={album[0]} albumImage={album[1]} albumTitle={album[2]} albumArtist={album[3]} id={album[0]} pathTo = "album"/>)
               }
             </div>
         </div>
@@ -127,7 +127,7 @@ async function getTopAlbums(stateChanger){
 
 
 
-  async function getNewAlbums(stateChanger){
+  async function AlbumCards(stateChanger){
     let response = await Spotify.getNewReleases();
             let artistsArr = response.albums.items;
             let artistDetials = [];
@@ -213,31 +213,31 @@ async function getTopAlbums(stateChanger){
   }
 
 
-function HomeArtistCard({loading , image , name , id}){
+export function ArtistCard({loading , image , name , id}){
     return (
-      <Link to={`artist/${id}`}>
+      <Link to={`/artist/${id}`}>
         <div className="home__artist__card">
-                    {loading ? <div className="home__artist__card__image__load"></div> : <img src={image} alt={name} />}
+                    {loading ? <div className="home__artist__card__image__load"></div> : <img src={image} alt={name} onError={(e)=> e.target.src = spotifyLogo}/>}
                     {!loading && <small>{name}</small>}
                     {!loading && <code>Artist</code>}
         </div>
       </Link>
     )
 }
-function NewAlbum({loading , albumImage , albumTitle , albumArtist , id}){
+export function AlbumCard({loading , albumImage , albumTitle , albumArtist , id , pathTo}){
     return (
-    <Link to={`album/${id}`}>
+    <Link to={`/${pathTo}/${id}`}>
         <div className="home__new__releases__card">
-                    {loading ? <div className="home__new__releases__card__image__load"></div> : <img src={albumImage} alt={albumTitle} />}
+                    {loading ? <div className="home__new__releases__card__image__load"></div> : <img src={albumImage} alt={albumTitle} onError={(e) => e.target.src = spotifyLogo}/>}
                     {!loading && <small>{albumTitle}</small>}
                     {!loading && <code>{albumArtist}</code>}
         </div>
     </Link>
     )
 }
-function TopAlbum({loading , albumImage , albumTitle , albumArtist , id}){
+export function TopAlbum({loading , albumImage , albumTitle , albumArtist , id , pathTo}){
     return (
-    <Link to={`album/${id}`}>
+    <Link to={`/${pathTo}/${id}`}>
         <div className="home__top__albums__card">
                     {loading ? <div className="home__top__albums__card__image__load"></div> : <img src={albumImage} alt={albumTitle} />}
                     {!loading && <small>{albumTitle}</small>}
@@ -248,9 +248,9 @@ function TopAlbum({loading , albumImage , albumTitle , albumArtist , id}){
 }
 
 
-  function HomePlaylistCard({loading , coverImage , title , id}){  
+  function PlaylistCard({loading , coverImage , title , id}){  
       return(
-        <Link to={`playlist/${id}`}>
+        <Link to={`/playlist/${id}`}>
           <div 
               className="playlist__card" >
             {loading ? <div className="playlist__card__image__load"> </div> : 

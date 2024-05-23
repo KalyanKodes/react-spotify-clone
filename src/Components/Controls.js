@@ -25,7 +25,7 @@ export function Controls({changeListType}){
             
             {/* <input type="text" className="controls__super__play__button" placeholder="Search a Song...." autoFocus/> */}
             <div style={{display: 'flex' , gap:'10px' , justifyContent: 'center' , alignItems:'center'}}>
-                <small>{listType}</small>
+                <small style={{cursor: "pointer"}} onClick={()=>setShowControls(!showControls)}>{listType}</small>
                 <FontAwesomeIcon icon={listType === 'List' ? faList : faHamburger} className='controls__super__list' onClick={()=>setShowControls(!showControls)}/>
             </div>
 

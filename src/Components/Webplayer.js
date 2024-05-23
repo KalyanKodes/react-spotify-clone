@@ -35,7 +35,7 @@ export default function Webplayer() {
             {<SideBar />}
             {/* Body */}
             <div className="webplayer__main__body" id="super" >
-                <Header/>
+            <Header/>
                 <div className="super">
                 <songChangeContext.Provider value={{setTrack: setTrack}}>
                   <Routes>

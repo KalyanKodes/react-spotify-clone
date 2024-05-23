@@ -42,7 +42,7 @@ export default function Banner({ coverImage, type, name, description, ownerName,
       <div className="banner__super" >
         <div className="banner__left">
           <ColorExtractor getColors={handleColors}>
-            <img src={coverImage} alt="playlist" className= {bannerType === "Artist" ? "banner__image__artist banner__image" : "banner__image"} width={250} height={250} onError={()=>{this.src = spotifyLogo}}/>
+            <img src={coverImage} alt="playlist" className= {bannerType === "Artist" ? "banner__image__artist banner__image" : "banner__image"} width={250} height={250} onError={(e)=> e.target.src = spotifyLogo}/>
           </ColorExtractor>
         </div>
         <div className="banner__right">
