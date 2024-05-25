@@ -84,7 +84,8 @@ function Search() {
     
         <div className={"search__inputs"}>
 
-        <label htmlFor="query" className='input__label__search__icon'>
+        <h1>Under Construction</h1>
+       {/*  <label htmlFor="query" className='input__label__search__icon'>
             <FontAwesomeIcon icon={faSearch}></FontAwesomeIcon>
         </label>
         <form action="" className='search__form' onSubmit={(e)=>{
@@ -98,12 +99,12 @@ function Search() {
         <label htmlFor="query" className='input__label__cross__icon'>
           <FontAwesomeIcon icon={faXmark} onClick={()=>setInputValue("")}></FontAwesomeIcon>
         </label>
-        </div>
+        </div> */}
       
 
       {/* Serch Body */}
 
-      <div className="search__body">
+      {/* <div className="search__body">
         <div className="categories">
           <button className='category__button'>All</button>
           <button className='category__button'>Albums</button>
@@ -112,12 +113,12 @@ function Search() {
           <button className='category__button'>Shows</button>
           <button className='category__button'>Episods</button>
         
-        </div>
+        </div> */}
 
         {/* Same Components used In Home so No changes done execpt inside map method */}
 
         {/* Artist */}
-        <div className="home__top__artist__card__outer">
+        {/* <div className="home__top__artist__card__outer">
             <h3>Artists</h3>
             <br />
             <div className="wrapper">
@@ -140,12 +141,12 @@ function Search() {
                     })
               }
             </div>
-        </div>
+        </div> */}
 
 
         {/* Albums */}
 
-        <div className="home__new__releases__card__outer">
+       {/*  <div className="home__new__releases__card__outer">
             <h3>Albums</h3>
             <br />
             <div className="wrapper">
@@ -167,12 +168,12 @@ function Search() {
                   })
               }
             </div>
-        </div>
+        </div> */}
         
 
 
         {/*  Playlist */}
-        <div className="home__new__releases__card__outer">
+        {/* <div className="home__new__releases__card__outer">
             <h3>Playlists</h3>
             <br />
             <div className="wrapper">
@@ -194,7 +195,7 @@ function Search() {
                   })
               }
             </div>
-        </div>
+        </div> */}
 
       </div>
 
