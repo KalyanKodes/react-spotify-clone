@@ -25,21 +25,21 @@ export default function Songs({data , listType , requestType , albumRealese , al
   //   changeSong();
   // } , [])
   
-  // data.forEach((song, i) => {
-  //   console.clear();
-  //   console.log("Data: ",data)
-  //     console.log("key=", i);
-  //     console.log("trackNumber=", i + 1);
-  //     console.log("addedOn=", requestType === "artist" ? song.album.release_date : requestType ===  "album" ? albumRealese : song.added_at.split("T")[0]);
-  //     console.log("artists=", requestType === "artist" || requestType === "album" ? song.artists : song.track.artists);
-  //     console.log("songName=", requestType === "artist" || requestType === "album" ? song.name : song.track.name);
-  //     console.log("songDuration=", requestType === "artist" || requestType === "album" ? song.duration_ms : song.track.duration_ms);
-  //     console.log("albumName=", requestType === "artist" ? song.album.name : requestType === "album" ? albumName :song.track.album.name);
-  //     console.log("listType=", !listType);
-  //     console.log("coverImage=", requestType === "artist" ? song.album.images[0].url : requestType === "album" ? albumCoverImage : song.track.album.images[0].url);
-  //     console.log("Preview Track: " , requestType === "artist" || requestType === 'album' ? song.preview_url : song.track.preview_url);
-  //     console.log("Track Id: " , requestType === "artist" || requestType === 'album' ? song.id : song.track.id);
-  // });
+  data.forEach((song, i) => {
+    // console.clear();
+    // console.log("Data: ",data)
+      // console.log("key=", i);
+      // console.log("trackNumber=", i + 1);
+      // console.log("addedOn=", requestType === "artist" ? song.album.release_date : requestType ===  "album" ? albumRealese : song.added_at.split("T")[0]);
+      // console.log("artists=", requestType === "artist" || requestType === "album" ? song.artists : song.track.artists);
+      // console.log("songName=", requestType === "artist" || requestType === "album" ? song.name : song.track.name);
+      // console.log("songDuration=", requestType === "artist" || requestType === "album" ? song.duration_ms : song.track.duration_ms);
+      // console.log("albumName=", requestType === "artist" ? song.album.name : requestType === "album" ? albumName :song.track.album.name);
+      // console.log("listType=", !listType);
+      // console.log("coverImage=", requestType === "artist" ? song.album.images[0].url : requestType === "album" ? albumCoverImage : song.track.album.images[0].url);
+      // console.log("Preview Track: " , requestType === "artist" || requestType === 'album' ? song.preview_url : song.track.preview_url);
+      // console.log("Track Id: " , requestType === "artist" || requestType === 'album' ? song.id : song.track.id);
+  });
   
   
   
@@ -73,7 +73,7 @@ export default function Songs({data , listType , requestType , albumRealese , al
 
 
 
-  function Audio({trackNumber , addedOn , artists , songName , songDuration , coverImage , heading , albumName , listType , id}){
+  export function Audio({trackNumber , addedOn , artists , songName , songDuration , coverImage , heading , albumName , listType , id}){
     let {setTrack} = useContext(songChangeContext);
     // console.clear();
     

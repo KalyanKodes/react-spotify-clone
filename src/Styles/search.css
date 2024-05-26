@@ -3,8 +3,8 @@
     display: flex;
     gap: 10px;
     color: #000;
-    background-color: yellow;
-    width: 400px;
+    max-width: 450px;
+
 }
 
 .search__form{
@@ -66,7 +66,7 @@
     align-items: start;
 }
 
-.categories{
+#categories{
     display: flex;
     gap: 10px;
     /* border: 1px solid #FFF; */
@@ -84,3 +84,30 @@
 
 }
 
+.songs__super__search{
+    display: flex;
+    flex-direction: column;
+}
+
+.songs__super__search h3{
+    margin-left: 50px;
+    align-self: flex-start;
+}
+
+
+.song :nth-child(1){
+    /* background-color: yellow; */
+    display: flex;
+    justify-content: space-between;
+}
+
+.search__song__loading{
+    width: 90%;
+    height: 50px;
+    background-color: #232121;  
+    border-radius: 20px;  
+    margin: 20px;
+    margin-left: 50px;
+    animation: loadingImage infinite 1.2s linear;
+
+}
