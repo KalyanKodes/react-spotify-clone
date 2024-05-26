@@ -66,12 +66,12 @@ function Search() {
 
         localStorage.setItem('recentQuery' , inputValue)
 
-        console.log('Albums:', details.albums.items);
-        console.log('Artists:', details.artists.items);
-        console.log('Playlists:', details.playlists.items);
-        console.log('Tracks:', details.tracks.items);
-        console.log('Shows:', details.shows.items);
-        console.log('Episodes:', details.episodes.items);
+        // console.log('Albums:', details.albums.items);
+        // console.log('Artists:', details.artists.items);
+        // console.log('Playlists:', details.playlists.items);
+        // console.log('Tracks:', details.tracks.items);
+        // console.log('Shows:', details.shows.items);
+        // console.log('Episodes:', details.episodes.items);
       }
       catch(e){
         console.log(e)
@@ -128,9 +128,9 @@ function Search() {
       setRenderType(type);
   }
 
-  console.log("Search Result: ",searchResult)
+  // console.log("Search Result: ",searchResult)
 
-  console.log("Input Value: " , inputValue)
+  // console.log("Input Value: " , inputValue)
   return (
     <>
     
@@ -176,8 +176,8 @@ function Search() {
                searchResult.albums.map((album , i)=>{
                  if(i < albumLimit)
                  try{
-                   console.log("Album Complete Object: " , album)
-                   console.log("Album Id: ",album.id)
+                  //  console.log("Album Complete Object: " , album)
+                  //  console.log("Album Id: ",album.id)
 
                    // console.log("Album name: ",album.name)
                    return <AlbumCard key={album.id} albumImage={album.images[0].url} albumTitle={album.name} albumArtist={album.artists[0].name} id={album.id} loading={false} pathTo={"album"}/>
@@ -232,8 +232,8 @@ function Search() {
                     searchResult.playlists.map((playlist , i)=>{
                       if(i < playlistLimit)
                       try{
-                        console.log("Playst Complete Object: " , playlist)
-                        console.log("Plalist Id: ",playlist.id)
+                        // console.log("Playst Complete Object: " , playlist)
+                        // console.log("Plalist Id: ",playlist.id)
   
                         // console.log("Album name: ",album.name)
                         return <AlbumCard key={playlist.id} albumImage={playlist.images[0].url} albumTitle={playlist.name} albumArtist={playlist.owner.display_name} id={playlist.id} loading={false} pathTo= "playlist"/>
@@ -256,17 +256,17 @@ function Search() {
             !searchResult.loadingStatus ? searchResult.tracks.map((song , i)=>{
               if(i < trackLimit){
                 try{
-                  console.log("key=", song.id);
-                  console.log("trackNumber=", i + 1);
-                  console.log("addedOn=", song.album.release_date);
-                  console.log("artists=", song.artists);
-                  console.log("songName=", song.name );
-                  console.log("songDuration=", song.duration_ms);
-                  console.log("albumName=",  song.album.name );
-                  console.log("listType=", true);
-                  console.log("coverImage=",  song.album.images[0].url );
-                  console.log("Preview Track: " ,  song.preview_url );
-                  console.log("Track Id: " ,  song.id);
+                  // console.log("key=", song.id);
+                  // console.log("trackNumber=", i + 1);
+                  // console.log("addedOn=", song.album.release_date);
+                  // console.log("artists=", song.artists);
+                  // console.log("songName=", song.name );
+                  // console.log("songDuration=", song.duration_ms);
+                  // console.log("albumName=",  song.album.name );
+                  // console.log("listType=", true);
+                  // console.log("coverImage=",  song.album.images[0].url );
+                  // console.log("Preview Track: " ,  song.preview_url );
+                  // console.log("Track Id: " ,  song.id);
                   // {trackNumber , addedOn , artists , songName , songDuration , coverImage , heading , albumName , listType , id}
                     return (<div className='song'><Audio trackNumber = {i +1} addedOn = {song.album.release_date} artists = {song.artists} songName = {song.name} songDuration = {song.duration_ms} coverImage = {song.album.images[0].url} heading = {false} albumName = {song.album.name} listType = {false} id = {song.id} key = {song.id}/></div>)
                 }
