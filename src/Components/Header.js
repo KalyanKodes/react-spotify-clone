@@ -15,7 +15,6 @@ export const Header = () => {
     let [showInputs , setShowInputs] = useState(false);
 
     const logout = () => {
-        alert();
         window.location.hash = ""
         localStorage.removeItem('login');
         localStorage.removeItem('accessToken');
