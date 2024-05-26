@@ -3,6 +3,8 @@
     display: flex;
     gap: 10px;
     color: #000;
+    background-color: yellow;
+    width: 400px;
 }
 
 .search__form{

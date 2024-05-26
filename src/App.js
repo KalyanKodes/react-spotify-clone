@@ -17,6 +17,7 @@ const getAccessToken = () => {
         localStorage.removeItem('login');
         localStorage.removeItem('accessToken');
         localStorage.removeItem('logedinAt');
+        localStorage.removeItem('recenttQuery');
         alert("Access Token Expired. Please Login Again");
         window.location.hash = ""
         return false;
@@ -33,6 +34,7 @@ const getAccessToken = () => {
       window.location.hash = "";
       localStorage.setItem("login" , true);
       localStorage.setItem("accessToken" , accessToken);
+      localStorage.setItem("recentQuery" , "Hanuman");
       localStorage.setItem("logedinAt" , new Date().getTime())
       return true;
   } else {
