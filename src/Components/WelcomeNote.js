@@ -40,7 +40,7 @@ function WelcomeNote() {
                   Once the app is created, you will find the Client ID on the app dashboard.
                 </li>
                 <li>
-                  Set the redirect URI to <code>http://localhost:3000/</code> in the app settings.
+                  Set the redirect URI to <code>https://kalyankodes.github.io/react-spotify-clone/</code> in the app settings.
                 </li>
               </ul>
               Ensure your Spotify account email matches the email registered with the Client ID.
