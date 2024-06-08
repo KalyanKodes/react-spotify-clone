@@ -30,7 +30,7 @@ export default function Webplayer() {
   // console.log("Current Track Id from Web Player Component: " , track)
   return (
     <>
-        <BrowserRouter >
+        <BrowserRouter basename="/react-spotify-clone">
             {/* SideBar */}
             {<SideBar />}
             {/* Body */}
