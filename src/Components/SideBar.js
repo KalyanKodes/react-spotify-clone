@@ -83,10 +83,10 @@ function SideBar() {
             {/* Side Bar Top */}
             <div className="webplayer__side__bar__top">
                 <Link to={"/"} >
-                    <div className="webplayer__side__bar__top__home"><FontAwesomeIcon icon={faHome} className='webplayer__side__bar__top__icons'/>Home</div>
+                    <div className="webplayer__side__bar__top__home"><FontAwesomeIcon icon={faHome} className='webplayer__side__bar__top__icons'/><p>Home</p></div>
                 </Link>
                 <Link to={"/search"}>
-                    <div className="webplayer__side__bar__top__search"><FontAwesomeIcon icon={faSearch} className='webplayer__side__bar__top__icons'/>Search</div>
+                    <div className="webplayer__side__bar__top__search"><FontAwesomeIcon icon={faSearch} className='webplayer__side__bar__top__icons'/><p>Search</p></div>
                 </Link>
                 {/* <Link to={"fav"}>
                     <div className="webplayer__side__bar__top__fav"><FontAwesomeIcon icon={faHeart} className='webplayer__side__bar__top__icons'/>Favorates</div>
@@ -94,7 +94,7 @@ function SideBar() {
             </div>
             {/* Side Bar Bottom */}
             <div className="webplayer__side__bar__bottom">
-                <div>
+                <div className='trending__playlist__heading'>
                     <p className='webplayer__side__bar__bottom__heading'>TRENDING PLAYLISTS</p>
                     <hr />
                 </div>

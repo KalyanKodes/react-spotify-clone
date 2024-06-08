@@ -137,3 +137,31 @@
 /* Updates */
 
 
+@media (max-width: 1200px) {
+        .playlist__item__description{
+            display: none;
+        }
+        .trending__playlist__heading{
+            display: none;
+        }
+        .webplayer__side__bar__bottom{
+            padding: 0;
+        }
+        .webplayer__side__bar__bottom__playlist__item{
+            margin: 0;
+        }
+        .webplayer__side__bar{
+            width: 60px;
+        }
+        .playlist__item__image img{
+            width: 40px;
+            height: 40px;
+        }
+        .webplayer__side__bar__top svg{
+            font-size: 15   px;
+        }
+        .webplayer__side__bar__top p{
+            display: none;
+        }
+}
+
