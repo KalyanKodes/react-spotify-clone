@@ -20,13 +20,13 @@ function PlaylistCard({status , imageUrl , playlistName ,ownerName , id}) {
           <img src={loadingImage} alt="spotify-loading-banner" className='playlist__item__loading__image'/> : 
           <>
               <div className="playlist__item__image">
-              <Link to={`/react-spotify-clone/playlist/${id}`} className='webplayer__side__bar__bottom__playlist__item_a'>
+              <Link to={`/playlist/${id}`} className='webplayer__side__bar__bottom__playlist__item_a'>
                   <img src={imageUrl} alt="playlist"/>
               </Link>
               
               </div>
               <div className="playlist__item__description">
-              <Link to={`/react-spotify-clone/playlist/${id}`} className='webplayer__side__bar__bottom__playlist__item_a'>
+              <Link to={`/playlist/${id}`} className='webplayer__side__bar__bottom__playlist__item_a'>
                   <p className="playlist__item__name">{playlistName}</p>
               </Link>
                   <p className="playlist__item__owner">Playlist &#x2022; {ownerName}</p>
@@ -82,10 +82,10 @@ function SideBar() {
         <div className="webplayer__side__bar">
             {/* Side Bar Top */}
             <div className="webplayer__side__bar__top">
-                <Link to={"/react-spotify-clone"} >
+                <Link to={""} >
                     <div className="webplayer__side__bar__top__home"><FontAwesomeIcon icon={faHome} className='webplayer__side__bar__top__icons'/>Home</div>
                 </Link>
-                <Link to={"/react-spotify-clone/search"}>
+                <Link to={"/search"}>
                     <div className="webplayer__side__bar__top__search"><FontAwesomeIcon icon={faSearch} className='webplayer__side__bar__top__icons'/>Search</div>
                 </Link>
                 {/* <Link to={"fav"}>
