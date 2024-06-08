@@ -39,7 +39,7 @@ export default function Webplayer() {
                 <div className="super">
                 <songChangeContext.Provider value={{setTrack: setTrack}}>
                   <Routes >
-                    <Route  path="" element={<Home />}/>
+                    <Route  exact path="/" element={<Home />}/>
                     {<Route path="/playlist/:playlistId" element={<Playlist />}/>}
                     {<Route path="/album/:albumId" element={<Album />}/>}
                     {<Route path="/artist/:artistId" element={<Artist />}/>}

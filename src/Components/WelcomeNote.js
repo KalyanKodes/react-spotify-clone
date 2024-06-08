@@ -5,9 +5,10 @@ import "../Styles/welcomeNote.css";
 function WelcomeNote() {
   let [clientId , setClientId] = useState("");
   const authEndpoint = "https://accounts.spotify.com/authorize";
-  // Replace with your app's client ID, redirect URI and desired scopes
   const _clientId = clientId;
-  const redirectUri = "https://kalyankodes.github.io/react-spotify-clone/";
+  const testing = false; //For testing purpose to swith easily from github url to local redirect url. When pushing to the repo change to false.
+  const githubUrl = "https://kalyankodes.github.io/react-spotify-clone/";
+  const testingUrl = "http://localhost:3000/";
   const scopes = [
     "user-read-currently-playing",
     "user-read-recently-played",
@@ -16,14 +17,14 @@ function WelcomeNote() {
     "user-modify-playback-state",
   ];
 
-  const accessUrl = `${authEndpoint}?client_id=${_clientId}&redirect_uri=${redirectUri}&scope=${scopes.join(
+  const accessUrl = `${authEndpoint}?client_id=${_clientId}&redirect_uri=${testing ? testingUrl : githubUrl}&scope=${scopes.join(
     "%20"
   )}&response_type=token&show_dialog=true`;
 
   return (
     <div className='welcome__note__outer'>
     <div className="welcome__note">
-    <p>Changes Tracker: 12</p>
+    <p>Changes Tracker: 13</p>
             <img src={spotifyImage} alt="spotify" className='welcome__note__image'/>
             <h1 className='welcome__note__heading'>Spotify Clone using React.js</h1>
             {/* <code className='welcome__note__developer'>KALYAN KUMAR</code> */}

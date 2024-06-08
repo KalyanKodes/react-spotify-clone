@@ -82,7 +82,7 @@ function SideBar() {
         <div className="webplayer__side__bar">
             {/* Side Bar Top */}
             <div className="webplayer__side__bar__top">
-                <Link to={""} >
+                <Link to={"/"} >
                     <div className="webplayer__side__bar__top__home"><FontAwesomeIcon icon={faHome} className='webplayer__side__bar__top__icons'/>Home</div>
                 </Link>
                 <Link to={"/search"}>

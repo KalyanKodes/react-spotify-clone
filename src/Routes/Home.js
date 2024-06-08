@@ -34,8 +34,8 @@ export default function Home(){
             <div className="wrapper">
               {
                 playlists.loadingStatus ? 
-                    playlists.$playlists.map((item , i)=><PlaylistCard loading={true} key={i}/>):
-                    playlists.$playlists.map((playlist)=><PlaylistCard key={playlist[2]} loading={false} coverImage={playlist[0]} title={playlist[1]} id={playlist[2]}/>)
+                    playlists.$playlists.map((item , i)=><PlaylistCard loading={true} key={i}/>): 
+                    playlists.$playlists.length !== 0 ? playlists.$playlists.map((playlist)=><PlaylistCard key={playlist[2]} loading={false} coverImage={playlist[0]} title={playlist[1]} id={playlist[2]}/>) : "No Recent Tracks"
               }
             </div>
         </div>
@@ -49,7 +49,7 @@ export default function Home(){
               {
                 artists.loadingStatus ? 
                     artists.$artists.map((item , i)=><ArtistCard loading={true} key={i}/>):
-                    artists.$artists.map((artist)=><ArtistCard key={artist[0]} loading={false} image={artist[1]} name={artist[2]} id={artist[0]}/>)
+                    artists.$artists.length !== 0 ? artists.$artists.map((artist)=><ArtistCard key={artist[0]} loading={false} image={artist[1]} name={artist[2]} id={artist[0]}/>) : "Detials not found"
               }
             </div>
         </div>
@@ -76,7 +76,7 @@ export default function Home(){
               {
                 topAlbums.loadingStatus ? 
                     topAlbums.$topAlbums.map((item , i)=><TopAlbum loading={true} key={i}/>):
-                    topAlbums.$topAlbums.map((album)=><TopAlbum key={album[0]} albumImage={album[1]} albumTitle={album[2]} albumArtist={album[3]} id={album[0]} pathTo={"album"}/>)
+                    topAlbums.$topAlbums.length !== 0 ? topAlbums.$topAlbums.map((album)=><TopAlbum key={album[0]} albumImage={album[1]} albumTitle={album[2]} albumArtist={album[3]} id={album[0]} pathTo={"album"}/>) : "No top Artists found"
               }
             </div>
         </div>
@@ -178,7 +178,7 @@ async function getTopAlbums(stateChanger){
 
   async function getRecentlyPlayedTracksPlaylists(token , stateChanger){
     Spotify.setAccessToken(token);
-        // console.log("Getting Recently Played Tracks");
+        console.log("Getting Recently Played Tracks");
         let response = await Spotify.getMyRecentlyPlayedTracks({limit: 50});  
         // console.log("Response: " , response.items)
         let returnedDetials = response.items;
@@ -201,13 +201,12 @@ async function getTopAlbums(stateChanger){
             try{
               let res = await Spotify.getPlaylist(id);
               playlistDetails.push([res.images[0].url , res.name , id])
-              //console.log("Playlist Details: ",res)
+              console.log("Playlist Details: ",res)
             }
             catch{
               // console.log("Cannot Find Playlist of Id: " , id)
             }
           }
-        // console.log("Fetched Details: ",playlistDetails)
         stateChanger({loadingStatus: false , $playlists: playlistDetails})
         // console.log("Updataed State:  ",playlists)
   }
