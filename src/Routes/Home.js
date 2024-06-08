@@ -76,7 +76,7 @@ export default function Home(){
               {
                 topAlbums.loadingStatus ? 
                     topAlbums.$topAlbums.map((item , i)=><TopAlbum loading={true} key={i}/>):
-                    topAlbums.$topAlbums.map((album)=><TopAlbum key={album[0]} albumImage={album[1]} albumTitle={album[2]} albumArtist={album[3]} id={album[0]}/>)
+                    topAlbums.$topAlbums.map((album)=><TopAlbum key={album[0]} albumImage={album[1]} albumTitle={album[2]} albumArtist={album[3]} id={album[0]} pathTo={"album"}/>)
               }
             </div>
         </div>
@@ -215,7 +215,7 @@ async function getTopAlbums(stateChanger){
 
 export function ArtistCard({loading , image , name , id}){
     return (
-      <Link to={`/artist/${id}`}>
+      <Link to={`/react-spotify-clone/artist/${id}`}>
         <div className="home__artist__card">
                     {loading ? <div className="home__artist__card__image__load"></div> : <img src={image} alt={name} onError={(e)=> e.target.src = spotifyLogo}/>}
                     {!loading && <small>{name}</small>}
@@ -226,7 +226,7 @@ export function ArtistCard({loading , image , name , id}){
 }
 export function AlbumCard({loading , albumImage , albumTitle , albumArtist , id , pathTo}){
     return (
-    <Link to={`/${pathTo}/${id}`}>
+    <Link to={`/react-spotify-clone/${pathTo}/${id}`}>
         <div className="home__new__releases__card">
                     {loading ? <div className="home__new__releases__card__image__load"></div> : <img src={albumImage} alt={albumTitle} onError={(e) => e.target.src = spotifyLogo}/>}
                     {!loading && <small>{albumTitle}</small>}
@@ -237,7 +237,7 @@ export function AlbumCard({loading , albumImage , albumTitle , albumArtist , id 
 }
 export function TopAlbum({loading , albumImage , albumTitle , albumArtist , id , pathTo}){
     return (
-    <Link to={`/${pathTo}/${id}`}>
+    <Link to={`/react-spotify-clone/${pathTo}/${id}`}>
         <div className="home__top__albums__card">
                     {loading ? <div className="home__top__albums__card__image__load"></div> : <img src={albumImage} alt={albumTitle} />}
                     {!loading && <small>{albumTitle}</small>}
@@ -250,7 +250,7 @@ export function TopAlbum({loading , albumImage , albumTitle , albumArtist , id ,
 
   function PlaylistCard({loading , coverImage , title , id}){  
       return(
-        <Link to={`/playlist/${id}`}>
+        <Link to={`/react-spotify-clone/playlist/${id}`}>
           <div 
               className="playlist__card" >
             {loading ? <div className="playlist__card__image__load"> </div> : 

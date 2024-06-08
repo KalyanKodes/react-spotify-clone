@@ -39,8 +39,8 @@ export default function Webplayer() {
                 <div className="super">
                 <songChangeContext.Provider value={{setTrack: setTrack}}>
                   <Routes>
-                    <Route path="/react-spotify-clone" element={<Home />}/>
-                    <Route path="/react-spotify-clone/playlist/:playlistId" element={<Playlist />}/>
+                    <Route  path="/react-spotify-clone" element={<Home />}/>
+                    {<Route path="/react-spotify-clone/playlist/:playlistId" element={<Playlist />}/>}
                     {<Route path="/react-spotify-clone/album/:albumId" element={<Album />}/>}
                     {<Route path="/react-spotify-clone/artist/:artistId" element={<Artist />}/>}
                     {<Route path="/react-spotify-clone/search" element={<Search />}/>}

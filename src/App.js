@@ -31,7 +31,8 @@ const getAccessToken = () => {
   }
   else if (splitedUrl[1]) {
       accessToken = splitedUrl[1].split("&")[0];
-      window.location.hash = "";
+      window.location.hash = '';
+      window.location.pathname = 'react-spotify-clone';
       localStorage.setItem("login" , true);
       localStorage.setItem("accessToken" , accessToken);
       localStorage.setItem("recentQuery" , "Hanuman");
