@@ -30,7 +30,7 @@ export default function Webplayer() {
   // console.log("Current Track Id from Web Player Component: " , track)
   return (
     <>
-        <BrowserRouter>
+        <BrowserRouter basename="/react-spotify-clone">
             {/* SideBar */}
             {<SideBar />}
             {/* Body */}
@@ -38,7 +38,7 @@ export default function Webplayer() {
             <Header/>
                 <div className="super">
                 <songChangeContext.Provider value={{setTrack: setTrack}}>
-                  <Routes>
+                  <Routes >
                     <Route  path="/react-spotify-clone" element={<Home />}/>
                     {<Route path="/react-spotify-clone/playlist/:playlistId" element={<Playlist />}/>}
                     {<Route path="/react-spotify-clone/album/:albumId" element={<Album />}/>}
