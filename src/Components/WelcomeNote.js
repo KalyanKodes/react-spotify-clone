@@ -7,7 +7,7 @@ function WelcomeNote() {
   const authEndpoint = "https://accounts.spotify.com/authorize";
   // Replace with your app's client ID, redirect URI and desired scopes
   const _clientId = clientId;
-  const redirectUri = "http://localhost:3000/";
+  const redirectUri = "https://kalyankodes.github.io/react-spotify-clone/";
   const scopes = [
     "user-read-currently-playing",
     "user-read-recently-played",
