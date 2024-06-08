@@ -215,7 +215,7 @@ async function getTopAlbums(stateChanger){
 
 export function ArtistCard({loading , image , name , id}){
     return (
-      <Link to={`/react-spotify-clone/artist/${id}`}>
+      <Link to={`/artist/${id}`}>
         <div className="home__artist__card">
                     {loading ? <div className="home__artist__card__image__load"></div> : <img src={image} alt={name} onError={(e)=> e.target.src = spotifyLogo}/>}
                     {!loading && <small>{name}</small>}
@@ -226,7 +226,7 @@ export function ArtistCard({loading , image , name , id}){
 }
 export function AlbumCard({loading , albumImage , albumTitle , albumArtist , id , pathTo}){
     return (
-    <Link to={`/react-spotify-clone/${pathTo}/${id}`}>
+    <Link to={`/${pathTo}/${id}`}>
         <div className="home__new__releases__card">
                     {loading ? <div className="home__new__releases__card__image__load"></div> : <img src={albumImage} alt={albumTitle} onError={(e) => e.target.src = spotifyLogo}/>}
                     {!loading && <small>{albumTitle}</small>}
@@ -237,7 +237,7 @@ export function AlbumCard({loading , albumImage , albumTitle , albumArtist , id 
 }
 export function TopAlbum({loading , albumImage , albumTitle , albumArtist , id , pathTo}){
     return (
-    <Link to={`/react-spotify-clone/${pathTo}/${id}`}>
+    <Link to={`/${pathTo}/${id}`}>
         <div className="home__top__albums__card">
                     {loading ? <div className="home__top__albums__card__image__load"></div> : <img src={albumImage} alt={albumTitle} />}
                     {!loading && <small>{albumTitle}</small>}
@@ -250,7 +250,7 @@ export function TopAlbum({loading , albumImage , albumTitle , albumArtist , id ,
 
   function PlaylistCard({loading , coverImage , title , id}){  
       return(
-        <Link to={`/react-spotify-clone/playlist/${id}`}>
+        <Link to={`/playlist/${id}`}>
           <div 
               className="playlist__card" >
             {loading ? <div className="playlist__card__image__load"> </div> : 
