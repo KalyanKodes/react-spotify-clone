@@ -1,9 +1,5 @@
-.songs__super{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* background-color: red; */
-    justify-content: center;
+.songs__super__search{
+    margin-top: 50px;
 }
 .songs__wrapper{
     /* display: flex;
@@ -19,11 +15,7 @@
 
 }
 
-.songs__wrapper div{
-    width: 200px;
-    /* background-color: yellow; */
-    /* display: flex; */
-}
+
 
 
 
@@ -54,14 +46,16 @@
 .artist__name , .song__name , .album__name , .song__duration , .song__addedon{
     width: 200px;
     overflow: hidden;
-    white-space: nowrap;
     text-overflow: ellipsis;
+    white-space: nowrap;
     color: #acb0aa;   
     /* margin: 0 30px;  */
 }
 .song__image__artists{
     display: flex;
     gap: 10px;
+    /* background-color: yellow; */
+    /* justify-content:center ; */
 } 
 
 .song__details__compact{
@@ -74,6 +68,7 @@
 
     .song__name{
         color: #FFF;
+
     }
 
 
@@ -87,4 +82,31 @@
     display: flex;
     gap: 20px;
     margin-right: 100px;
+}
+
+.song__details__compact{
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width: 1200px){
+    .songs__wrapper{
+        padding-left: 10px;
+    }
+}
+
+
+@media (max-width: 700px){
+    .song__image__artists{
+        /* background-color: yellow; */
+        /* width: 100%; */
+        justify-content: center;
+    }
+    .album__name , .song__addedon , .song__duration , .artist__name{
+        display: none;
+    }
+    .song__name , .artist__name{
+        width: 250px;
+        /* font-size: 10px; */
+    }
 }

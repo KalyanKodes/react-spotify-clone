@@ -211,3 +211,20 @@
     align-items: center;
     /* background-color: yellow; */
 }
+
+
+@media (max-width: 750px){
+    .playing__feedback{
+        display: none;
+    }
+}
+@media (max-width: 600px){
+    .controls__wrapper{
+        display: none;
+    }
+}
+@media (max-width: 360px){
+    .song__name__music__player , .artist__name__music__player{
+        width: 100px;
+    }
+}

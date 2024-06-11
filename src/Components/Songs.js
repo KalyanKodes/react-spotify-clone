@@ -47,7 +47,7 @@ export default function Songs({data , listType , requestType , albumRealese , al
 
     return (
       <div className="songs__super">
-        <Audio heading={true} listType={!listType}/>  
+        {/* <Audio heading={true} listType={!listType}/>   */}
         <hr className="songs__hr"/>
   
        {
