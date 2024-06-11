@@ -134,6 +134,11 @@ function Search() {
   return (
     <>
     
+      
+
+      {/* Serch Body */}
+
+      <div className="search__body">
         <div className={"search__inputs"}>
 
          <label htmlFor="query" className='input__label__search__icon'>
@@ -151,11 +156,6 @@ function Search() {
           <FontAwesomeIcon icon={faXmark} onClick={()=>setInputValue("")}></FontAwesomeIcon>
         </label>
         </div> 
-      
-
-      {/* Serch Body */}
-
-      <div className="search__body">
         <div id="categories">
           <button className='category__button' onClick={(e)=>{changeRenderType(e , "all")}} style={{background : "rgba(222 , 222 , 222 , .7)"}}>All</button>
           <button className='category__button' onClick={(e)=>{changeRenderType(e , "albums")}}>Albums</button>

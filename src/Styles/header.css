@@ -57,6 +57,12 @@
     cursor: pointer;
     position: relative;
     transition: .4s;
+    /* background-color: yellow; */
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow:ellipsis;
+    width: 100px;
+    font-size: 12px;
 }
 
 
@@ -76,4 +82,16 @@
 
 .home__header__right__down__symbol a{
     background-color: unset;
+}
+
+
+
+
+@media (max-width: 900px){
+    a[href = "https://www.spotify.com/in-en/download/windows/"]{
+        display: none;
+    }
+    .home__header__right{
+        gap: 10px;
+    }
 }

@@ -42,7 +42,7 @@ export const Header = () => {
         <div className="home__header">
             
             <div className="home__header__right">
-                <a href="https://www.spotify.com/in-en/download/windows/">
+                <a href="https://www.spotify.com/in-en/download/windows/" className="install__app">
                     <FontAwesomeIcon icon={faDownload} className='home__header__download' />
                     Install App
                 </a>

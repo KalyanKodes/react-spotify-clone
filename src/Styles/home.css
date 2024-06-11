@@ -20,7 +20,7 @@
 }
 
 .playlist__card{
-    min-width: 320px;
+    max-width: 320px;
     padding-right: 10px;
     /* border: 1px solid #FFF; */
     border-radius: 5px;
@@ -43,7 +43,7 @@ a{
 
 .playlist__card__image__load{
     width: 70px;
-    height: 70px;
+    height: 50px;
     background-color: #6a6666;
     border-radius: 5px;
     animation: loadingImage infinite 1s linear;
@@ -89,3 +89,53 @@ a{
 }
 
 
+
+
+@media (max-width: 900px){
+    .playlist__card{
+        width: 200px;
+        height: 50px;
+    }
+    .playlist__card img{
+        height: 50px;
+    }
+}
+
+
+@media (max-width: 1100px){
+    .home__top__artist__card__outer .wrapper{
+        gap:20px;
+    }
+
+    .home__artist__card__image__load{
+        width: 100px;
+        height: 100px;
+    }
+    .home__top__artist__card__outer .wrapper a{
+        /* background-color: yellow; */
+        width: 100px;
+        overflow: hidden;
+    }
+    .home__artist__card img{
+        width: 100px;
+        height: 100px;
+    }
+}
+
+
+@media (max-width: 700px) {
+    .home__new__releases__card__outer , .home__top__albums__card__outer{
+        /* background-color: red; */
+        margin-bottom: 40px;
+    }
+
+    .home__new__releases__card img , .home__top__albums__card img , .home__new__releases__card__image__load , .home__top__albums__card__image__load{
+        width: 120px;
+        height: 120px;
+    }
+    .home__new__releases__card , .home__top__albums__card{
+        width: 120px;
+        height: 120px;
+        /* background-color: yellow; */
+    }
+}
