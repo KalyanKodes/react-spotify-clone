@@ -146,7 +146,7 @@ function Search() {
           getDetails()
         }}>
         
-        <div>
+        <div className='icons__parent'>
          <label htmlFor="query" className='input__label__search__icon'>
             <FontAwesomeIcon icon={faSearch}></FontAwesomeIcon>
         </label>

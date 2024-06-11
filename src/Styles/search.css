@@ -18,6 +18,11 @@
     position: relative;
 }
 
+.icons__parent{
+    position: relative;
+    /* background-color: yellow; */
+}
+
 .search__inputs input{
     color: #000;
 }
@@ -29,7 +34,7 @@
     background-color: #4a4848;
     border: none;
     border-radius: 30px;
-    max-width: 300px;
+    width: 300px;
     /* position: relative; */
     color: #FFF;
     outline: none;
@@ -48,7 +53,7 @@
 .input__label__cross__icon{
     position: absolute;
     z-index: 20;
-    left: 210px;
+    right: 20px;
     top: 8px;
     cursor: pointer;
 }
@@ -127,5 +132,10 @@
         /* margin-top: 40px; */
         padding: 0;
         padding-left: 10px;
+    }
+}
+@media (max-width: 400px){
+    .search__inputs input{
+        width: 200px;
     }
 }
