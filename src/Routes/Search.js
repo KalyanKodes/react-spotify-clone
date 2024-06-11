@@ -141,20 +141,23 @@ function Search() {
       <div className="search__body">
         <div className={"search__inputs"}>
 
-         <label htmlFor="query" className='input__label__search__icon'>
-            <FontAwesomeIcon icon={faSearch}></FontAwesomeIcon>
-        </label>
         <form action="" className='search__form' onSubmit={(e)=>{
           e.preventDefault();
           getDetails()
         }}>
-        <input type="text" id="query" placeholder='What do you want to play?' autoFocus value={inputValue} onChange={(e)=>setInputValue(e.target.value)}/>
         
-        <button className='search__button'>Search</button>
-        </form>
+        <div>
+         <label htmlFor="query" className='input__label__search__icon'>
+            <FontAwesomeIcon icon={faSearch}></FontAwesomeIcon>
+        </label>
+          <input type="text" id="query" placeholder='What do you want to play?' autoFocus value={inputValue} onChange={(e)=>setInputValue(e.target.value)}/>
         <label htmlFor="query" className='input__label__cross__icon'>
           <FontAwesomeIcon icon={faXmark} onClick={()=>setInputValue("")}></FontAwesomeIcon>
         </label>
+        </div>
+        
+        <button className='search__button'>Search</button>
+        </form>
         </div> 
         <div id="categories">
           <button className='category__button' onClick={(e)=>{changeRenderType(e , "all")}} style={{background : "rgba(222 , 222 , 222 , .7)"}}>All</button>

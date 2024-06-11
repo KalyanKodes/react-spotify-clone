@@ -23,7 +23,7 @@ function WelcomeNote() {
 
   return (
     <div className='welcome__note__outer'>
-    <p>Changes Tracker: 16</p>
+    <p>Changes Tracker: 17</p>
             <img src={spotifyImage} alt="spotify" className='welcome__note__image'/>
             <h1 className='welcome__note__heading'>Spotify Clone using React.js</h1>
             <br /><br />
