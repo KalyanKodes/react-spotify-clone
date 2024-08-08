@@ -5,7 +5,8 @@ A web-based Spotify clone built using React.js and the Spotify Web API.
 ## Table of Contents
 
 - [Features](#features)
-- [Technologies Used](#technologies-used)
+- [Languages Used](#languages-used)
+- [Libraries Used](#libraries-used)
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
@@ -13,7 +14,6 @@ A web-based Spotify clone built using React.js and the Spotify Web API.
   - [Testing Mode](#testing-mode)
   - [Building for Production](#building-for-production)
 - [Folder Structure](#folder-structure)
-
 ## Features
 
 - **User Authentication**: Sign in with your Spotify account.
@@ -22,14 +22,22 @@ A web-based Spotify clone built using React.js and the Spotify Web API.
 - **Responsive Design**: Mobile-friendly layout.
 - **Search Functionality**: Search for songs, playlists, albums, and artists directly within the app.
 
-## Technologies Used
+## Languages Used
 
-- **React.js**: UI library for building user interfaces.
-- **Spotify Web API**: For fetching data from Spotify and user authentication.
-- **React Router**: Client-side routing for a single-page application.
-- **Font Awesome**: Icons used throughout the application.
-- **Vibrant.js**: Extracts colors from images for dynamic theming.
-- **React Color Extractor**: Used for extracting dominant colors from album covers.
+- **JavaScript**: The primary language used for building the application.
+- **HTML**: Used for structuring the web pages.
+- **CSS**: Used for styling the application and making it responsive.
+
+## Libraries Used
+
+- **React.js**: A JavaScript library for building user interfaces.
+- **React Router DOM**: For handling routing in a single-page application.
+- **Font Awesome**: Icon library used throughout the application.
+- **Vibrant.js**: Library used to extract prominent colors from images.
+- **React Color Extractor**: Library used to extract dominant colors from album covers.
+- **Spotify Web API JS**: A JavaScript library for interacting with the Spotify Web API.
+
+
 
 ## Getting Started
 
