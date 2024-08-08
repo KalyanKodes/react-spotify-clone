@@ -26,7 +26,7 @@ function Album() {
     }
     getAlbumCompleteDetails();
   }  , [albumId]);
-  console.log("Album Songs: " , albumSongs)
+  
   return (
     <>
         {
@@ -53,9 +53,6 @@ function Album() {
                 albumName = {albumDetails.name} 
                 albumCoverImage={albumDetails.images[0].url}/>
         }
-  
-
-  
     </>
   )
 }

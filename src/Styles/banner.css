@@ -1,19 +1,15 @@
 .banner__super , .banner__super__load{
-    width: 100%;
-    /* height: 300px; */
-    /* background-color: rgb(52, 52, 47); */
+    width: 100%;    
     display: flex;
     align-items: center;
     padding: 10px 20px;  
     gap: 20px;
     flex-wrap: wrap;
-    /* box-shadow: 0 25px 25px rgba(0, 0, 0, 0.743); */
 }
 
 .banner__left{
     width: 300px;
 }
-
 
 .banner__right , .banner__right__load{
     display: flex;
@@ -25,6 +21,7 @@
 .banner__right__heading{
     font-size: 50px;    
 }
+
 .banner__right__description{
     margin: 10px 0;
     color: #CCB0BC;
@@ -47,6 +44,7 @@
     border-radius: 20px;
     animation: loadingImage infinite 1.2s linear;
 }
+
 .banner__right__one__load , .banner__right__description__load{
     padding: 10px;
     background-color: #2A3038;
@@ -83,8 +81,6 @@
     scale: 1.03;
     cursor: pointer;
 }
-
-
 
 @media (max-width: 700px){
     .banner__image{

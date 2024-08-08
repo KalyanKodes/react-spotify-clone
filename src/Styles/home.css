@@ -3,15 +3,12 @@
     display: flex;
     flex-direction: column;
     padding: 20px;
-    /* border: 1px solid #FFF; */
-    /* background-color: yellow; */
 }
 
 .home__playlist__card__outer .wrapper , .home__top__artist__card__outer .wrapper , .home__new__releases__card__outer .wrapper ,.home__top__albums__card__outer .wrapper{
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
-    /* border: 1px solid #FFF; */
 }
 
 
@@ -22,7 +19,6 @@
 .playlist__card{
     max-width: 320px;
     padding-right: 10px;
-    /* border: 1px solid #FFF; */
     border-radius: 5px;
     display: flex;
     align-items: center;
@@ -30,9 +26,11 @@
     background-color: #252f31;
     cursor: pointer;
 }
+
 .playlist__card:hover{
     text-decoration: underline;
 }
+
 a{
     text-decoration: none;
 }
@@ -62,7 +60,6 @@ a{
     max-width: 200px;
     flex-direction: column;
     text-overflow: ellipsis;
-    /* border: 1px solid #FFF; */
     cursor: pointer;
 }
 
@@ -79,7 +76,6 @@ a{
     border-radius: 10px;
 }
 
-
 .home__artist__card__image__load, .home__new__releases__card__image__load , .home__top__albums__card__image__load{
     width: 200px;
     height: 200px;
@@ -87,9 +83,6 @@ a{
     border-radius: 50%;
     animation: loadingImage infinite 1s linear;
 }
-
-
-
 
 @media (max-width: 900px){
     .playlist__card{
@@ -101,12 +94,10 @@ a{
     }
 }
 
-
 @media (max-width: 1100px){
     .home__top__artist__card__outer .wrapper{
         gap:20px;
     }
-
     .home__artist__card__image__load{
         width: 100px;
         height: 100px;
@@ -122,13 +113,11 @@ a{
     }
 }
 
-
 @media (max-width: 700px) {
     .home__new__releases__card__outer , .home__top__albums__card__outer{
         /* background-color: red; */
         margin-bottom: 40px;
     }
-
     .home__new__releases__card img , .home__top__albums__card img , .home__new__releases__card__image__load , .home__top__albums__card__image__load{
         width: 120px;
         height: 120px;
@@ -136,6 +125,5 @@ a{
     .home__new__releases__card , .home__top__albums__card{
         width: 120px;
         height: 120px;
-        /* background-color: yellow; */
     }
 }

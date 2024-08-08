@@ -2,7 +2,6 @@
     width: 100%;
     height: 100%;   
     color: #FFF;
-    /* background-color: rgb(57, 58, 55); */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -11,21 +10,11 @@
     overflow: scroll;
 }
 
-/* .welcome__note{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: yellow;
-} */
-
 .welcome__note__image{
     animation: welcomeLoad 1 .8s linear;
 }
 
-
 .welcome__note__heading{
-    /* transform: translateY(-70px); */
     font-size: 60px;
     position: relative;
     animation: welcomeLoad 1 .8s  linear;
@@ -40,9 +29,7 @@
     align-items: center;
     flex-wrap: wrap;
     gap: 10px;
-    /* background-color: yellow; */
 }
-
 
 .clientId__form input{
     flex-basis: 400px;
@@ -54,8 +41,6 @@
     outline: none;
     font-size: 1.1em;
 }
-
-
 
 .welcome__note__heading::after{
     content: "by. KALYAN KUMAR";
@@ -76,7 +61,6 @@
     color: #000;
     cursor: pointer;
     transition: .3s;
-    /* transform: translateY(50px); */
     animation: welcomeLoad 1 .8s  linear;
 }
 
@@ -95,7 +79,6 @@
         opacity: 1;
     }
 }
-
 
 @media (max-width: 650px){
     .welcome__note__image{

@@ -4,9 +4,6 @@ import { useParams } from "react-router-dom";
 import Banner from "../Components/Banner";
 import { Controls } from "../Components/Controls";
 import Songs from "../Components/Songs";
-import MusicPlayer from "./MusicPlayer";
-
-
 
 export default function Playlist({musicPlayerTracksChanger}){
   const {playlistId} = useParams();
@@ -18,19 +15,13 @@ export default function Playlist({musicPlayerTracksChanger}){
     const getPlaylistsFromSpotify = async ()=>{
       setPlaylistDetails(false)
       let response = await Spotify.getPlaylist(playlistId);
-      // console.clear();
-      // console.log("Playlist Details: ",response)
-      // console.log("Playlist Tracks: ",response.tracks.items[0]);
-      // console.log("Song Added on: " , response.tracks.items[0].added_at.split("T")[0]);
-      // console.log("Artists: " , response.tracks.items[0].track.artists)
-      // console.log("Song name: " , response.tracks.items[0].track.album.name)
-      // console.log("Song Duration: " , response.tracks.items[0].track.duration_ms);
       setPlaylistDetails(response)
       setSongsData(response.tracks.items)
     }
     getPlaylistsFromSpotify();
   } , [playlistId]);
-    return(
+
+  return(
         playlistDetails ? 
         <>
             <Banner 
@@ -48,7 +39,6 @@ export default function Playlist({musicPlayerTracksChanger}){
             {<Controls changeListType={setlistType} stateChanger = {musicPlayerTracksChanger} data = {songsData} type={'playlist'}/>}
             {<Songs data = {songsData} listType={listType} />}
         </> :
-
       <Banner loading={true}/>
     )
 }

@@ -6,7 +6,7 @@ function WelcomeNote() {
   let [clientId , setClientId] = useState("");
   const authEndpoint = "https://accounts.spotify.com/authorize";
   const _clientId = clientId;
-  const testing = false; //For testing purpose to swith easily from github url to local redirect url. When pushing to the repo change to false.
+  const testing = true; //For testing purpose to swith easily from github url to local redirect url. When pushing to the repo change to false.
   const githubUrl = "https://kalyankodes.github.io/react-spotify-clone/";
   const testingUrl = "http://localhost:3000/";
   const scopes = [
@@ -16,16 +16,13 @@ function WelcomeNote() {
     "user-top-read",
     "user-modify-playback-state",
   ];
-
-  const accessUrl = `${authEndpoint}?client_id=${_clientId}&redirect_uri=${testing ? testingUrl : githubUrl}&scope=${scopes.join(
-    "%20"
-  )}&response_type=token&show_dialog=true`;
-
+  const accessUrl = `${authEndpoint}?client_id=${_clientId}&redirect_uri=${testing ? testingUrl : githubUrl}&scope=${scopes.join("%20")}&response_type=token&show_dialog=true`;
   return (
     <div className='welcome__note__outer'>
             <img src={spotifyImage} alt="spotify" className='welcome__note__image'/>
             <h1 className='welcome__note__heading'>Spotify Clone using React.js</h1>
-            <br /><br />
+            <br />
+            <br />
             <small>
               Spotify Web API requires a Client ID for Authentication. Follow the steps below to obtain it:
               <ul>

@@ -12,7 +12,6 @@ export default function Home(){
     let [albums , setAlbums] = useState({loadingStatus: true , $albums : ["" , "" , "" , "" , ""]});
     let [topAlbums , setTopAlbums] = useState({loadingStatus: true , $topAlbums : ["" , "" , "" , "" , ""]});
 
-
     // Use Effect to get recent Tracks Playlists
     useEffect(()=>{getRecentlyPlayedTracksPlaylists(accessToken , setPlaylists)} , [accessToken])
     // Use Effect to get Artist details;
@@ -24,7 +23,6 @@ export default function Home(){
     // Use Effect to change background color of Home Component on Initial Render
     useEffect(()=>{changeBackgroundColor(["#222222" , "#131819", "#121212"])} , []); 
       
-
     return(
       <>
         {/* Playback History */}
@@ -38,10 +36,8 @@ export default function Home(){
                     playlists.$playlists.length !== 0 ? playlists.$playlists.map((playlist)=><PlaylistCard key={playlist[2]} loading={false} coverImage={playlist[0]} title={playlist[1]} id={playlist[2]}/>) : "No Recent Tracks"
               }
             </div>
-        </div>
-              
+        </div>       
         {/* Artists */}
-              
         <div className="home__top__artist__card__outer">
             <h3>Top Artists</h3>
             <br />
@@ -53,8 +49,6 @@ export default function Home(){
               }
             </div>
         </div>
-        
-        
         {/* New Albums */}
         <div className="home__new__releases__card__outer">
             <h3>New Releases</h3>
@@ -67,7 +61,6 @@ export default function Home(){
               }
             </div>
         </div>
-
         {/* User's Top Albums */}
         <div className="home__top__albums__card__outer">
             <h3>Your Top Albums</h3>
@@ -79,15 +72,12 @@ export default function Home(){
                     topAlbums.$topAlbums.length !== 0 ? topAlbums.$topAlbums.map((album)=><TopAlbum key={album[0]} albumImage={album[1]} albumTitle={album[2]} albumArtist={album[3]} id={album[0]} pathTo={"album"}/>) : "No top Artists found"
               }
             </div>
-        </div>
-        
+        </div>    
       </>
-    )
-  }
-  
+   )
+}
 
-
-  function changeBackgroundColor(colors){
+function changeBackgroundColor(colors){
     try{
         let element = document.getElementById('super');
         element.style.background = `linear-gradient(${colors})`;
@@ -95,134 +85,126 @@ export default function Home(){
     catch(e){
       console.log(e)
     }
-  }
+}
 
 async function getTopAlbums(stateChanger){
   let response = await Spotify.getMyTopTracks({limit: 50});
-  // console.log("Top Tracks: ",response.items)
   let trackDetaisArr = response.items;
   let topAlbumsId = []
   let topAlbums = [];
+  let initialTopAlbums = [];
+
   for(const item of trackDetaisArr){
     if(!topAlbumsId.includes(item.album.id)){
       topAlbums.push([item.album.id , item.album.images[0].url , item.album.name , item.album.artists[0].name]);
       topAlbumsId.push(item.album.id)
     }
   }
-  let initialTopAlbums = [];
-            if(topAlbums.length > 6){
-              for(let i = 0; i < 6; i++){
-                initialTopAlbums.push(topAlbums[i])
-              }
-            }
-            else{
-              initialTopAlbums = topAlbums;
-            }
-  // let uniqueTopAlbumsIds = new Set(topAlbumsId)
-  // console.log("Top Albums : " , initialTopAlbums);
+  
+  if(topAlbums.length > 6){
+      for(let i = 0; i < 6; i++){
+              initialTopAlbums.push(topAlbums[i])
+      }
+  }
+  else{ initialTopAlbums = topAlbums; }
+  
   stateChanger({loadingStatus: false , $topAlbums: [...initialTopAlbums]})
-
 }
 
 
 
 
-  async function AlbumCards(stateChanger){
+async function AlbumCards(stateChanger){
     let response = await Spotify.getNewReleases();
-            let artistsArr = response.albums.items;
-            let artistDetials = [];
-            for(const artist of artistsArr){
-              artistDetials.push([artist.id , artist.images[0].url , artist.name , artist.artists[0].name])
-            }
-            // console.log("Test: ",artistsArr);
-            let initialArtistDetials = [];
-            if(artistDetials.length > 6){
-              for(let i = 0; i < 6; i++){
-                initialArtistDetials.push(artistDetials[i])
-              }
-            }
-            else{
-              initialArtistDetials = artistDetials;
-            }
-            // console.log("Final Artist Detials: ",initialArtistDetials)
-            stateChanger({loadingStatus : false  , $albums : [...initialArtistDetials]});
-  }
+    let artistsArr = response.albums.items;
+    let artistDetials = [];
+    let initialArtistDetials = [];
+
+    for(const artist of artistsArr){
+          artistDetials.push([artist.id , artist.images[0].url , artist.name , artist.artists[0].name])
+    }
+
+    if(artistDetials.length > 6){
+        for(let i = 0; i < 6; i++){
+              initialArtistDetials.push(artistDetials[i])
+        }
+    }
+    else{ initialArtistDetials = artistDetials; }
+
+    stateChanger({loadingStatus : false  , $albums : [...initialArtistDetials]});
+}
 
 
-  async function getTopArtists(stateChanger){
+async function getTopArtists(stateChanger){
     try{
         let response = await Spotify.getMyTopArtists();
-        // console.log("Artist Details: ",response)
         let artistsItemsArr = response.items;
         let artistsDetials = [];
+        let initialArtists = [];
 
         for(const artist of artistsItemsArr){
             artistsDetials.push([artist.id , artist.images[0].url , artist.name]);
         }
-        let initialArtists = [];
+
         for(let i = 0; i < 12; i++){
             if(i < artistsDetials.length){
                 initialArtists.push(artistsDetials[i])
             }
         }
-        // console.log(initialArtists)
-        // console.log("All Artists Detials: " , artistsDetials);
+
         stateChanger({loadingStatus: false , $artists: [...initialArtists]});
     }
     catch{
-        // console.log("Error Generated while fetching Artist")
+        console.log("Error Generated while fetching Artist")
     }
 }
 
 
 
-  async function getRecentlyPlayedTracksPlaylists(token , stateChanger){
+async function getRecentlyPlayedTracksPlaylists(token , stateChanger){
     Spotify.setAccessToken(token);
-        console.log("Getting Recently Played Tracks");
-        let response = await Spotify.getMyRecentlyPlayedTracks({limit: 50});  
-        // console.log("Response: " , response.items)
-        let returnedDetials = response.items;
-        // console.log("Unique Playlits Id's: " , returnedDetials)
-        let ids = [];
-        for(const item of returnedDetials){
-          try{
-            // console.log("Playlist Id: ",item.context.uri.split(":")[2]);
+    let response = await Spotify.getMyRecentlyPlayedTracks({limit: 50});  
+    let returnedDetials = response.items;
+    let ids = [];
+    let playlistDetails = []
+
+    for(const item of returnedDetials){
+        try{
             ids.push(item.context.uri.split(":")[2]);
-          }
-          catch{
-            // console.log("Can't find Recently played Tracks")
-          }
         }
-        let uniqueIds = new Set(ids);
-        // console.log("Final Id's: ",uniqueIds)
-        // console.log("Playlist ID's: " , returnedDetials)
-        let playlistDetails = []
-          for(const id of uniqueIds){
-            try{
-              let res = await Spotify.getPlaylist(id);
-              playlistDetails.push([res.images[0].url , res.name , id])
-              console.log("Playlist Details: ",res)
-            }
-            catch{
-              // console.log("Cannot Find Playlist of Id: " , id)
-            }
-          }
-        stateChanger({loadingStatus: false , $playlists: playlistDetails})
-        // console.log("Updataed State:  ",playlists)
-  }
+        catch{
+            console.log("Can't find Recently played Tracks")
+        }
+    }
+
+    let uniqueIds = new Set(ids);
+
+    for(const id of uniqueIds){
+        try{
+            let res = await Spotify.getPlaylist(id);
+            playlistDetails.push([res.images[0].url , res.name , id])
+        }
+        catch{
+              console.log("Cannot Find Playlist of Id: " , id)
+        }
+    }
+
+    stateChanger({loadingStatus: false , $playlists: playlistDetails})
+}
 
 
 export function ArtistCard({loading , image , name , id}){
     return (
       <Link to={`/artist/${id}`}>
         <div className="home__artist__card">
-                    {loading ? <div className="home__artist__card__image__load"></div> : <img src={image} alt={name} onError={(e)=> e.target.src = spotifyLogo}/>}
-                    {!loading && <small>{name}</small>}
-                    {!loading && <code>Artist</code>}
+              {loading ? <div className="home__artist__card__image__load"></div> : <img src={image} alt={name} onError={(e)=> e.target.src = spotifyLogo}/>}
+              {!loading && <small>{name}</small>}
+              {!loading && <code>Artist</code>}
         </div>
       </Link>
     )
 }
+
 export function AlbumCard({loading , albumImage , albumTitle , albumArtist , id , pathTo}){
     return (
     <Link to={`/${pathTo}/${id}`}>
@@ -234,6 +216,7 @@ export function AlbumCard({loading , albumImage , albumTitle , albumArtist , id 
     </Link>
     )
 }
+
 export function TopAlbum({loading , albumImage , albumTitle , albumArtist , id , pathTo}){
     return (
     <Link to={`/${pathTo}/${id}`}>
@@ -246,8 +229,7 @@ export function TopAlbum({loading , albumImage , albumTitle , albumArtist , id ,
     )
 }
 
-
-  function PlaylistCard({loading , coverImage , title , id}){  
+function PlaylistCard({loading , coverImage , title , id}){  
       return(
         <Link to={`/playlist/${id}`}>
           <div 
@@ -259,8 +241,8 @@ export function TopAlbum({loading , albumImage , albumTitle , albumArtist , id ,
             {loading ? <p className="playlist__card__title__load"></p> : <p>{title}</p>}
         </div>
         </Link>
-      )
-  }
+    )
+}
   
   
   

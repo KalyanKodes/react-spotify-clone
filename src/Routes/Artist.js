@@ -4,8 +4,6 @@ import { Spotify } from '../Components/Webplayer';
 import Banner from '../Components/Banner'
 import { Controls } from '../Components/Controls';
 import Songs from '../Components/Songs';
-import MusicPlayer from './MusicPlayer';
-
 
 function Artist() {
   let {artistId} = useParams();
@@ -18,9 +16,6 @@ function Artist() {
       try {
         let response = await Spotify.getArtist(artistId);
         let songs = await Spotify.getArtistTopTracks(artistId);
-        // console.clear();
-        // console.log("Artist Details: ", response);
-        // console.log("Artist Songs: ", songs);
         let details = {
           id: response.id,
           coverImage: response.images[0].url,
@@ -32,12 +27,8 @@ function Artist() {
       } catch (error) {
         console.error('Error fetching artist data:', error);
       }
-    };
-    
-    fetchArtistData();
-  }, [artistId]);
+    }; fetchArtistData(); }, [artistId]);
 
-// console.log("Songs: " , artistSongs)
   return (
     <>
       {
@@ -52,30 +43,10 @@ function Artist() {
                   : 
               <Banner loading={true}/>
       }
-      {
-          <Controls changeListType={setlistType} />
-      }
-      {
-          artistDetails 
-              &&
-         <Songs 
-              listType={listType} 
-              data={artistSongs} 
-              requestType = "artist"/>
-      }
+      { <Controls changeListType={setlistType} /> }
+      { artistDetails && <Songs listType={listType} data={artistSongs} requestType = "artist"/>}
     </>
   )
 }
-
-
-
-
-
-
-
-
-
-
-
 
 export default Artist

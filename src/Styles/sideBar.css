@@ -1,8 +1,8 @@
 ::-webkit-scrollbar{
     display: none;
 }
+
 .webplayer__side__bar{
-    /* border: 1px solid #FFF; */
     height: 100%;
     width: 20%; 
     display: flex;
@@ -12,7 +12,6 @@
 }
 
 .webplayer__side__bar__top , .webplayer__side__bar__bottom{
-    /* border: 1px solid #FFF; */
     width: 100%;
     background-color: #121212;
     border-radius: 10px;
@@ -21,7 +20,6 @@
 .webplayer__side__bar__bottom{
     padding-bottom: 100px;
 }
-
 
 .webplayer__side__bar__top div{
     margin: 10px 0;
@@ -37,7 +35,6 @@
     transition: .3s;
 }
 
-
 .webplayer__side__bar__top a{
     text-decoration: none;
 }
@@ -51,7 +48,6 @@
 
 .webplayer__side__bar__bottom{
     margin-top: 15px;
-    /* border: 1px solid #FFF; */
     height: auto;
     padding-left: 20px;
     padding-top: 10px;
@@ -69,9 +65,6 @@
     width: 98%;
 }
 
-
-
-
 .webplayer__side__bar__bottom__playlist__item_a{
     text-decoration: none;
 }
@@ -83,12 +76,9 @@
     align-items: center;
     gap: 20px;
     height: 70px;
-    /* border: 1px solid #FFF; */
     margin: 10px 0;
     cursor: pointer;
 }
-
-
 
 .playlist__item__image{
     height: 100%;
@@ -119,6 +109,7 @@
     color: #767676;
     font-weight: 600;
 }
+
 .playlist__item__loading__image{
     width: 100%;
     animation: loadingImage infinite 1.2s linear;
@@ -133,10 +124,7 @@
     }
 }
 
-
 /* Updates */
-
-
 @media (max-width: 1200px) {
         .playlist__item__description{
             display: none;

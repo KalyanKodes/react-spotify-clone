@@ -8,12 +8,8 @@ import { topPlaylists } from '../playlistsId';
 import { Link } from 'react-router-dom';
 import { Spotify } from './Webplayer';
 
-
-
-
 function PlaylistCard({status , imageUrl , playlistName ,ownerName , id}) {
     return (
-     
       <div className="webplayer__side__bar__bottom__playlist__item">
       {
           status ? 
@@ -33,48 +29,29 @@ function PlaylistCard({status , imageUrl , playlistName ,ownerName , id}) {
               </div>
           </>
       }
-  </div>
-      
+    </div>
     )
   }
   
-
-
-
-
-
-
-
-
-
 function SideBar() {
     let [loading , setLoading] = useState(true);
     let [playlists , setPlaylists] = useState()
     let {accessToken} = useContext(myContext)
     let _playlists = [];
+
     useEffect(
         () =>{
             const getPlaylists = async () =>{
                     Spotify.setAccessToken(accessToken)
-                    // console.log("Fetching Side Bar Playlists")
                     let returnedList = await Spotify.getFeaturedPlaylists().then((data) => (data.playlists.items));
                     for(let i = 0; i< returnedList.length; i++){
                         _playlists.push(<PlaylistCard status={false}  imageUrl={returnedList[i].images[0].url} key={returnedList[i].id} ownerName={returnedList[i].owner.display_name} playlistName={returnedList[i].name} id = {returnedList[i].id}/>)
                     }
-                    // console.log("Fetching Side Bar Playlists Completed")
-                    // console.log("Testing Playlist ID");
-
-                    // Spotify.getPlaylist("73pL7GHExZgUOzqAm1TaRE").then((data)=>console.log(data));
-
                 setLoading(false);
                 setPlaylists(_playlists)
             }
             getPlaylists();
-        } , [accessToken]
-    );
-
-
-
+        } , [accessToken]);
 
   return (
     <>
@@ -88,9 +65,6 @@ function SideBar() {
                 <Link to={"/search"}>
                     <div className="webplayer__side__bar__top__search"><FontAwesomeIcon icon={faSearch} className='webplayer__side__bar__top__icons'/><p>Search</p></div>
                 </Link>
-                {/* <Link to={"fav"}>
-                    <div className="webplayer__side__bar__top__fav"><FontAwesomeIcon icon={faHeart} className='webplayer__side__bar__top__icons'/>Favorates</div>
-                </Link> */}
             </div>
             {/* Side Bar Bottom */}
             <div className="webplayer__side__bar__bottom">
@@ -98,8 +72,6 @@ function SideBar() {
                     <p className='webplayer__side__bar__bottom__heading'>TRENDING PLAYLISTS</p>
                     <hr />
                 </div>
-                
-
                 {
                     loading ? topPlaylists.map((list , i)=>{
                         return (
@@ -109,8 +81,6 @@ function SideBar() {
                 }
             </div>
         </div>
-
-
     </>
   )
 }

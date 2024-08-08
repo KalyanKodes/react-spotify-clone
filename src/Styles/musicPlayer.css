@@ -11,17 +11,10 @@
     transition: .3s;
 }
 
-
-
-
 .song__image__artists__music__player{
-    /* background-color: yellow; */
     display: flex;
     gap: 30px;
 }
-
-
-
 
 .song__details__compact__music__player{
     display: flex;
@@ -42,9 +35,7 @@
     color: #acb0aa; 
 }
 
-
 .music__player__controls{
-    /* background-color: rgb(48, 48, 35); */
     color: #FFF;
     display: flex;
     width: 400px;
@@ -65,18 +56,16 @@
     cursor: pointer;
 }
 
-
-
 .track__range{
     display: flex;
     align-items: center;
     gap: 5px;
 }
 
-
 .track__range p{
     font-size: 12px;
 }
+
 .range{
     height: 3px;
     width: 400px;
@@ -85,13 +74,10 @@
     cursor: pointer;
 }
 
-
-
 .music__controls__volume__controls__full__screen{
     display: flex;
     gap: 20px;
     align-items: center;
-    /* background-color: blue; */
     transition: .4s;
     padding: 10px;
     padding-right: 30px;
@@ -101,10 +87,8 @@
     align-items: end;
 }
 
-
 .volume__range{
     height: 3px;
-    /* background-color: yellow; */
     transition: .3s;
     cursor: pointer;
 }
@@ -127,24 +111,17 @@
     animation: playFeedback infinite .4s linear;
   }
 
-  @keyframes playFeedback{
-        0% , 100%{
-            height: var(--height);
-        }
-        50%{
-            height: 0;
-        }
-  }
+@keyframes playFeedback{
+    0% , 100%{
+        height: var(--height);
+    }
+    50%{
+        height: 0;
+    }
+}
   
-
-
-
-
-
 /* Full Screen Styles */
-
 .song__image__artists__music__player__full__screen{
-    /* background-color: yellow;    */
     display: flex;
     align-items: center;
     gap: 40px;
@@ -179,7 +156,6 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    /* background-color: yellow; */
     height: 350px;
 }
 
@@ -192,6 +168,7 @@
     text-overflow: ellipsis;
     animation: headings__full__screen 1 1.3s linear;
 }
+
 @keyframes headings__full__screen{
     from{
         transform: translateX(200px);
@@ -204,12 +181,10 @@
     }
 }
 
-
 .controls__wrapper{
     display: flex;
     gap: 20px;
     align-items: center;
-    /* background-color: yellow; */
 }
 
 
@@ -218,11 +193,13 @@
         display: none;
     }
 }
+
 @media (max-width: 600px){
     .controls__wrapper{
         display: none;
     }
 }
+
 @media (max-width: 360px){
     .song__name__music__player , .artist__name__music__player{
         width: 100px;
