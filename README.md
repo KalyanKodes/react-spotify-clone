@@ -62,8 +62,36 @@ Before you begin, ensure you have met the following requirements:
 To start the development server, run:
 
 ```bash
-npm start
+npm start 
+```
 
+### Testing Mode
+In the WelcomeNote.js component (located inside the components folder), there is a constant testing that controls whether the app uses the local redirect URL or the GitHub URL.
+
+To run the app locally, set testing to true:
+
+```bash
+const testing = true; // For local testing
+```
+Important: Before pushing to the repository for production deployment, ensure that testing is set to false:
+```bash
+const testing = false; // For production deployment
+```
+
+### Building for Production
+To create a production build of the app, run:
+
+```bash
+npm run build
+```
+The build files will be located in the build/ directory. Deploy these files to your preferred hosting service.
+
+
+### Folder Structure
+
+Folder Structure
+bash
+Copy code
 ├── public/
 ├── src/
 │   ├── components/
