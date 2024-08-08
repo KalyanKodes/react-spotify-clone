@@ -63,3 +63,15 @@ To start the development server, run:
 
 ```bash
 npm start
+
+├── public/
+├── src/
+│   ├── components/
+│   │   ├── WelcomeNote.js
+│   │   └── # Other component files...
+│   ├── App.js
+│   ├── index.js
+│   └── # Other JS files...
+├── .env
+├── package.json
+└── README.md
