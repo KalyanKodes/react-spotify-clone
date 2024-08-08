@@ -6,7 +6,7 @@ function WelcomeNote() {
   let [clientId , setClientId] = useState("");
   const authEndpoint = "https://accounts.spotify.com/authorize";
   const _clientId = clientId;
-  const testing = true; //For testing purpose to swith easily from github url to local redirect url. When pushing to the repo change to false.
+  const testing = false; //For testing purpose to swith easily from github url to local redirect url. When pushing to the repo change to false.
   const githubUrl = "https://kalyankodes.github.io/react-spotify-clone/";
   const testingUrl = "http://localhost:3000/";
   const scopes = [
