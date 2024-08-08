@@ -14,13 +14,13 @@ A web-based Spotify clone built using React.js and the Spotify Web API.
   - [Building for Production](#building-for-production)
 - [Folder Structure](#folder-structure)
 
-
 ## Features
 
 - **User Authentication**: Sign in with your Spotify account.
 - **Playlist Display**: View and interact with your Spotify playlists.
 - **Dynamic UI Colors**: UI color scheme adapts to the current album cover.
 - **Responsive Design**: Mobile-friendly layout.
+- **Search Functionality**: Search for songs, playlists, albums, and artists directly within the app.
 
 ## Technologies Used
 
@@ -87,15 +87,46 @@ The build files will be located in the build/ directory. Deploy these files to y
 
 ### Folder Structure
 ```bash
-├── public/
-├── src/
-│   ├── components/
-│   │   ├── WelcomeNote.js
-│   │   └── # Other component files...
-│   ├── App.js
-│   ├── index.js
-│   └── # Other JS files...
-├── .env
-├── package.json
-└── README.md
+public/
+│   404.html
+│   favicon.ico
+│   index.html
+│
+src/
+└── Assets/
+└── Components/
+    │   Banner.js
+    │   Controls.js
+    │   Header.js
+    │   SideBar.js
+    │   Songs.js
+    │   WebPlayer.js
+    │   WelcomeNote.js
+└── Routes/
+    │   Album.js
+    │   Artist.js
+    │   Home.js
+    │   MusicPlayer.js
+    │   Playlist.js
+    │   Search.js
+└── Styles/
+    │   app.css
+    │   banner.css
+    │   controls.css
+    │   header.css
+    │   home.css
+    │   musicPlayer.css
+    │   search.css
+    │   sideBar.css
+    │   songs.css
+    │   webplayerMain.css
+    │   welcomeNote.css
+│   App.js
+│   index.js
+│   playlistsid.js
+│   .gitignore
+│   README.md
+│   package-lock.json
+│   package.json
+
 ```
