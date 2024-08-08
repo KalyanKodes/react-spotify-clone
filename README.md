@@ -10,12 +10,10 @@ A web-based Spotify clone built using React.js and the Spotify Web API.
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
   - [Running the App Locally](#running-the-app-locally)
-  - [Environment Variables](#environment-variables)
   - [Testing Mode](#testing-mode)
   - [Building for Production](#building-for-production)
 - [Folder Structure](#folder-structure)
-- [Troubleshooting](#troubleshooting)
-- [License](#license)
+
 
 ## Features
 
