@@ -90,7 +90,6 @@ To create a production build of the app and deploy, run:
 ```bash
 npm run deploy
 ```
-The build files will be located in the build/ directory. Deploy these files to your preferred hosting service.
 
 
 ### Folder Structure
