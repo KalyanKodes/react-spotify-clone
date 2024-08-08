@@ -89,9 +89,6 @@ The build files will be located in the build/ directory. Deploy these files to y
 
 ### Folder Structure
 
-Folder Structure
-bash
-Copy code
 ├── public/
 ├── src/
 │   ├── components/
@@ -103,3 +100,4 @@ Copy code
 ├── .env
 ├── package.json
 └── README.md
+
