@@ -42,14 +42,14 @@
     font-size: 1.1em;
 }
 
-.welcome__note__heading::after{
+/* .welcome__note__heading::after{
     content: "by. KALYAN KUMAR";
     position: absolute;
     right: 0;
     bottom: -20px;
     font-size: 17px;
     color: burlywood;
-}
+} */
 
 .welcome__note__button{
     padding: 10px 15px;
