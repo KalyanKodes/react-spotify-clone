@@ -2,14 +2,15 @@ import React, { useEffect, useRef, useState } from "react";
 import "../Styles/musicPlayer.css";
 import { Spotify } from "../Components/Webplayer";
 import spotifyLogo from '../Assests/spotifyDiscoverWeeklyLogo.png';
-import { faPlayCircle , faPauseCircle , faExpand, faVolumeMute, faVolumeHigh, faDownLeftAndUpRightToCenter, } from "@fortawesome/free-solid-svg-icons";
+import { faPlayCircle , faPauseCircle , faExpand, faVolumeMute, faVolumeHigh, faDownLeftAndUpRightToCenter, faL, } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ColorExtractor } from "react-color-extractor";
 
 export default function MusicPlayer({track}){
     let [isSongPlaying , setIsSongPlaying] = useState(false);
     let [currentTrack ,setCurrentTrack] = useState()
-    let [canPlayStatus , setCanPlayStatus] = useState();
+    let [canPlayStatus , setCanPlayStatus] = useState(true);
+    let [error , setError] = useState(false);
     let [isMuted , setIsMuted] = useState(false);
     let [isOnFullScreen , setIsOnFullScreen] = useState(false);
     let [backgroundColor, setBackgroundColor] = useState('#000');
@@ -27,7 +28,8 @@ export default function MusicPlayer({track}){
                     setCurrentTrack(songResponse)
                 }
                 catch(e){
-                    console.log("Error Fetching Song");
+                    setError(true)
+                    console.log("Something went wrong")
                 }
         }
         getSongInfo();
@@ -87,8 +89,7 @@ export default function MusicPlayer({track}){
                     <div className="music__player__controls">
                             <div className="control__buttons">
                             {
-                                currentTrack.preview_url !== null ? 
-                                    canPlayStatus === 'yes' ? 
+                                currentTrack.preview_url  ? 
                                     <>
                                         <div>
                                             { 
@@ -112,16 +113,17 @@ export default function MusicPlayer({track}){
                                                         </div> : ""
                                             }
                                             
-                                    </> : canPlayStatus === 'no' ? !isOnFullScreen && <p>Spotify Cannot play this song right now</p>  : !isOnFullScreen && <h1>Loading...</h1>
-                                     : !isOnFullScreen && <h1>Song Not available</h1>}
+                                    </> 
+                                     : !isOnFullScreen && <h1>Song Not available</h1> 
+                            }
                             </div>  
                     </div>
                     <audio src={currentTrack.preview_url} ref={audioRef} onEnded={()=> pauseSong()} onCanPlayThrough={()=>{setCanPlayStatus('yes')}} onError={()=>{setCanPlayStatus("no")}}></audio>
                 </> 
                 :
-                <h1>Loading...</h1>  
+                 error ? <h2 style={{color: "red" , translate: "0 20px"}}>Something went wrong</h2> : <h1>Loading...</h1>
             }
-            <div className={isOnFullScreen ? "music__controls__volume__controls__full__screen__triger music__controls__volume__controls__full__screen" : "music__controls__volume__controls__full__screen"}>
+            {!error && <div className={isOnFullScreen ? "music__controls__volume__controls__full__screen__triger music__controls__volume__controls__full__screen" : "music__controls__volume__controls__full__screen"}>
                 <div className="controls__wrapper">
                         <FontAwesomeIcon icon={isMuted ? faVolumeMute : faVolumeHigh} className="speaker__icon" onClick={()=>{
                                 if(isMuted){
@@ -138,7 +140,7 @@ export default function MusicPlayer({track}){
                         }}/>
                         <input type="range" className="volume__range" ref={volumeRef} onChange={(e)=>{
                             audioRef.current.volume = e.target.value
-                            if(e.target.value == 0){
+                            if(e.target.value === 0){
                                 setIsMuted(true)
                             }else{
                                 setIsMuted(false)
@@ -146,7 +148,7 @@ export default function MusicPlayer({track}){
                         }} min={0} max={1} step={0.1}/>
                         <FontAwesomeIcon icon={isOnFullScreen ? faDownLeftAndUpRightToCenter : faExpand} className="full__screen__icon" onClick={()=>{toggleFullScreen()}}/>
                 </div>
-            </div>
+            </div>}
         </div>
     )
 }

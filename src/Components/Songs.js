@@ -47,10 +47,13 @@ export function Audio({trackNumber , addedOn , artists , songName , songDuration
           wrapper.style.background = "unset";
         })
         songTag.current.style.background = '#636561';
+        console.log("Clicked on : " , id)
         setTrack(id)
   }
     
-  return(<><div className= {heading ? "songs__wrapper" : "songs__wrapper songs__wrapper__audio"} onClick={!heading ? feedback : console.log("")} ref={songTag } id="$songContainer">
+  return(
+    <>
+      <div className= {heading ? "songs__wrapper" : "songs__wrapper songs__wrapper__audio"} onClick={!heading ? feedback : console.log("")} ref={songTag } id="$songContainer">
             {
                 heading ? 
                   <>
