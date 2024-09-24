@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import "../Styles/musicPlayer.css";
 import { Spotify } from "../Components/Webplayer";
 import spotifyLogo from '../Assests/spotifyDiscoverWeeklyLogo.png';
-import { faPlayCircle , faPauseCircle , faExpand, faVolumeMute, faVolumeHigh, faDownLeftAndUpRightToCenter, faL, } from "@fortawesome/free-solid-svg-icons";
+import { faPlayCircle , faPauseCircle , faExpand, faVolumeMute, faVolumeHigh, faDownLeftAndUpRightToCenter} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ColorExtractor } from "react-color-extractor";
 
@@ -118,10 +118,10 @@ export default function MusicPlayer({track}){
                             }
                             </div>  
                     </div>
-                    <audio src={currentTrack.preview_url} ref={audioRef} onEnded={()=> pauseSong()} onCanPlayThrough={()=>{setCanPlayStatus('yes')}} onError={()=>{setCanPlayStatus("no")}}></audio>
+                    <audio src={currentTrack.preview_url} ref={audioRef} onEnded={()=> pauseSong()} onCanPlayThrough={()=>{setCanPlayStatus(true)}} onError={()=>{setCanPlayStatus(false)}}></audio>
                 </> 
                 :
-                 error ? <h2 style={{color: "red" , translate: "0 20px"}}>Something went wrong</h2> : <h1>Loading...</h1>
+                 !canPlayStatus || error ? <h2 style={{color: "red" , translate: "0 20px"}}>Something went wrong</h2> : <h1>Loading...</h1>
             }
             {!error && <div className={isOnFullScreen ? "music__controls__volume__controls__full__screen__triger music__controls__volume__controls__full__screen" : "music__controls__volume__controls__full__screen"}>
                 <div className="controls__wrapper">

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef }  from "react";
+import React, { useContext, useRef }  from "react";
 import { faClock } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import "../Styles/songs.css"

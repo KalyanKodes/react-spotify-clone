@@ -1,7 +1,7 @@
-import React , {useEffect, useRef, useState}from 'react';
+import React , {useEffect, useState}from 'react';
 import { Spotify } from '../Components/Webplayer';
 import "../Styles/search.css";
-import { faCancel, faCross, faSearch, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ArtistCard } from './Home';
 import { AlbumCard } from './Home';
@@ -142,7 +142,7 @@ function Search() {
          {
            searchResult.loadingStatus ? 
                searchResult.albums.map((item , i)=><AlbumCard loading={true} key={i}/>):
-               searchResult.albums.map((album , i)=>{
+               searchResult.albums.map((album , i)=> {
                  if(i < albumLimit)
                  try{
                    return <AlbumCard key={album.id} albumImage={album.images[0].url} albumTitle={album.name} albumArtist={album.artists[0].name} id={album.id} loading={false} pathTo={"album"}/>
@@ -197,7 +197,7 @@ function Search() {
       </div>
       {/* Tracks */}
         <div className="songs__super__search">
-        {trackLimit != 0 && <h3>Tracks</h3>}
+        {trackLimit !== 0 && <h3>Tracks</h3>}
        {
             !searchResult.loadingStatus ? searchResult.tracks.map((song , i)=>{
               if(i < trackLimit){
